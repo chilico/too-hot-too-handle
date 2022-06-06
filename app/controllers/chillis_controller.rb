@@ -19,8 +19,9 @@ class ChillisController < ApplicationController
   end
 
   private
+
   def set_chilli
-    @jewel = Chilli.find(params[:id])
+    @chilli = Chilli.find(params[:id])
   end
 
   def chilli_params
