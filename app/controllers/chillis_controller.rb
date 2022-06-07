@@ -25,17 +25,7 @@ class ChillisController < ApplicationController
   end
 
   def chilli_params
-    params.require(:chilli).permit(
-      :variety,
-      :heat,
-      :quantity,
-      :description,
-      :species,
-      :chilli_type,
-      :date_available,
-      :price,
-      :shu,
-      photos: []
-    )
+    params.require(:chilli).permit(:variety, :heat, :quantity, :description, :species,
+                                   :chilli_type, :date_available, :price, :shu, photos: [])
   end
 end
