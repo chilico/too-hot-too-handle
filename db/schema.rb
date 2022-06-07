@@ -40,6 +40,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_163427) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+
+  create_table "chillis", force: :cascade do |t|
+    t.string "variety"
+    t.string "heat"
+    t.integer "quantity"
+    t.text "description"
+    t.string "species"
+    t.string "chilli_type"
+    t.date "date_available"
+    t.float "price"
+    t.integer "shu"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chillis_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +71,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_163427) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chillis", "users"
 end
