@@ -48,6 +48,11 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# gems added beyond default
+gem "cloudinary"
+gem "faker"
+gem "open-uri"
+gem "pg_search"
 gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
@@ -57,7 +62,6 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "dotenv-rails"
   gem "cloudinary"
-
 end
 
 group :development do
