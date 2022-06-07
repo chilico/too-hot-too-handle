@@ -11,9 +11,9 @@
     <% end %>
 
     <%= f.input :first_name,
-                required: false,
+                required: true,
                 autofocus: true,
-                input_html: { autocomplete: "given-name" }%>
+                input_html: { autocomplete: "first_name" }%>
     <%= f.input :last_name,
                 required: false,
                 autofocus: true,
