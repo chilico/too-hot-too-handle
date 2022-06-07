@@ -110,6 +110,7 @@ users.sample(3).each do |user|
       filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
       chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
     end
+
     chilli.save
   end
 end
@@ -138,6 +139,7 @@ users.sample(3).each do |user|
       filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
       chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
     end
+
     chilli.save
   end
 end
@@ -166,6 +168,7 @@ users.each do |user|
       filename = "#{chilli.variety.downcase.gsub(' ', '_')}_#{i}.jpg"
       chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
     end
+
     chilli.save
   end
 end
