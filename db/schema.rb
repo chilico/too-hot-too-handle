@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2022_06_07_094851) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_07_111958) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_094851) do
     t.index ["user_id"], name: "index_chillis_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.float "rating"
+    t.bigint "chilli_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chilli_id"], name: "index_reviews_on_chilli_id"
+  end
+
   create_table "sales", force: :cascade do |t|
     t.string "status"
     t.string "shipping_method"
@@ -66,6 +75,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_094851) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
+  create_table "sales_chillis", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "sale_id", null: false
+    t.bigint "chilli_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chilli_id"], name: "index_sales_chillis_on_chilli_id"
+    t.index ["sale_id"], name: "index_sales_chillis_on_sale_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,5 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_094851) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chillis", "users"
+  add_foreign_key "reviews", "chillis"
   add_foreign_key "sales", "users"
+  add_foreign_key "sales_chillis", "chillis"
+  add_foreign_key "sales_chillis", "sales"
 end
