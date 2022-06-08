@@ -1,0 +1,21 @@
+<div class="container">
+  <%# TODO: add search bar to update result %>
+  <%# header showing number of results %>
+  <h1 class="p-4">
+    <%= @chillis.count %> Results
+  </h1>
+
+  <% @chillis.each do |chilli| %>
+    <div class="card-product">
+      <%= cl_image_tag chilli.photos.first.key %>
+      <div class="card-product-infos">
+        <h2><%= chilli.variety %></h2>
+        <h3><%= chilli.species %></h3>
+        <h3><%= chilli.chilli_type %></h3>
+        <h3><%= chilli.price %></h2>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>
