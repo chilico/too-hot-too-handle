@@ -1,8 +1,4 @@
-.section {
-  background-color: $light_blue;
-}
-
-.section-card {
+.type-card {
   background-size: cover;
   background-position: center;
   height: 285px;
@@ -11,7 +7,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.chilli-type {
+.type-text {
   display: block;
   background-color: rgba(251, 139, 36, 0.7);
   border-radius: 20px 20px 0 0;

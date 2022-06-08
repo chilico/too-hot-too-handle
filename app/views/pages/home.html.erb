@@ -8,9 +8,9 @@
   <h3 class="heading h-size-32 py-3">...by type</h3>
   <div class="container py-2">
     <div class="row d-flex justify-content-center">
-      <%= render "section_card", image: "fresh-chilli.jpg", title: "Fresh" %>
-      <%= render "section_card", image: "seed-chilli.jpg", title: "Seed" %>
-      <%= render "section_card", image: "dried-chilli.jpg", title: "Dried" %>
+      <%= render "type_card", image: "fresh-chilli.jpg", title: "Fresh" %>
+      <%= render "type_card", image: "seed-chilli.jpg", title: "Seed" %>
+      <%= render "type_card", image: "dried-chilli.jpg", title: "Dried" %>
     </div>
   </div>
 </div>
@@ -19,9 +19,15 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <%= render "levels" %>
+        <%= render "heat_level" %>
       </div>
+    </div>
+    <div class="row">
+      <span class="heading h-size-24 py-2">No heat</span>
     </div>
   </div>
 </div>
-<div class="section py-2 my-4"></div>
+<div class="section py-2 my-4">
+  <h3 class="heading h-size-32 py-3">...by species</h3>
+
+</div>
