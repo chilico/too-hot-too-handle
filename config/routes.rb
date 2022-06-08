@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :chillis
+  resources :users, only: %i[show]
 end
