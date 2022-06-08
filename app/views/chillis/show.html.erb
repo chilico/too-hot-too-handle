@@ -1,11 +1,58 @@
 <div class="background">
   <div class="container contianer-show">
+
     <div class="row">
       <div class="col-12">
         <div>
-          <p><%= link_to "< Continue Shopping", root_path, class: "styling-for-links" %></p>
+          <p><%= link_to "< Continue Shopping", chillis_path, class: "styling-for-links" %></p>
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <%# carousel %>
+      <div class="col-12 col-md-6 p-4 d-flex justify-content-center">
+        <div class="d-flex align-items-center w-80">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <% @chilli.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= "active" if index == 0 %>">
+                  <%= cl_image_tag photo.key, height: 300, over_flow: :hidden, object_fit: :cover, alt: "Chilli Photo", class: "d-block" %>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <%# chilli info %>
+      <div class="col-12 col-md-6 p-4 d-flex flex-column justify-content-center">
+        <h2><%= @chilli.variety %></h2>
+        <div class="d-flex">
+          <div>
+            <p><em>Capsicum <%= @chilli.species %></em></p>
+            <p><%= @chilli.chilli_type %></p>
+          </div>
+        </div>
+        <a href="<%#= link_to new_sale_chilli %>" class="btn btn-cart">ADD TO CART</a>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
   </div>
 </div>
