@@ -87,8 +87,8 @@ end
 users = User.all
 
 # chilli seeds
-users.sample(3).each do |user|
-  3.times do
+users.sample(4).each do |user|
+  rand(1..3).times do
     species = SPECIES.keys.sample.to_s
     variety = SPECIES[species.to_sym].sample
 
@@ -116,8 +116,8 @@ users.sample(3).each do |user|
 end
 
 # dried chillies
-users.sample(3).each do |user|
-  3.times do
+users.sample(4).each do |user|
+  rand(1..3).times do
     species = SPECIES.keys.sample.to_s
     variety = SPECIES[species.to_sym].sample
 
@@ -146,7 +146,7 @@ end
 
 # fresh chillies
 users.each do |user|
-  3.times do
+  4.times do
     species = SPECIES.keys.sample.to_s
     variety = SPECIES[species.to_sym].sample
 
