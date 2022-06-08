@@ -95,7 +95,7 @@ users.sample(4).each do |user|
     chilli = Chilli.new
 
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize} Seeds"
+    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
     chilli.heat = HEAT.keys.sample.to_s
     chilli.shu = "#{HEAT[chilli.heat.to_sym].min}-#{HEAT[chilli.heat.to_sym].max + 1}"
@@ -105,11 +105,9 @@ users.sample(4).each do |user|
     chilli.date_available = [Date.today, (Date.today + rand(10..70))].sample
     chilli.price = rand(0.0..20.0).round(2)
 
-    @IMAGES[:seeds].sample do |url|
-      photo = URI.open(url)
-      filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
-      chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
-    end
+    photo = URI.open(@IMAGES[:seeds].sample)
+    filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
+    chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
 
     chilli.save
   end
@@ -124,7 +122,7 @@ users.sample(4).each do |user|
     chilli = Chilli.new
 
     chilli.user = user
-    chilli.variety = "Dried #{SPICY.sample.capitalize} #{variety.capitalize}"
+    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
     chilli.heat = HEAT.keys.sample.to_s
     chilli.shu = "#{HEAT[chilli.heat.to_sym].min}-#{HEAT[chilli.heat.to_sym].max + 1}"
@@ -134,11 +132,9 @@ users.sample(4).each do |user|
     chilli.date_available = [Date.today, (Date.today + rand(10..70))].sample
     chilli.price = rand(0.0..20.0).round(2)
 
-    @IMAGES[:dried].sample do |url|
-      photo = URI.open(url)
-      filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
-      chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
-    end
+    photo = URI.open(@IMAGES[:dried].sample)
+    filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
+    chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
 
     chilli.save
   end
@@ -153,7 +149,7 @@ users.each do |user|
     chilli = Chilli.new
 
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize}"
+    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
     chilli.heat = HEAT.keys.sample.to_s
     chilli.shu = HEAT[chilli.heat.to_sym].to_a.sample
@@ -174,3 +170,6 @@ users.each do |user|
 end
 
 puts 'Successfully seeded database!'
+
+# manual (rails c) fix for underscores in name
+# Chilli.all.each {|i| i.variety = i.variety.gsub('_', ' ') ; i.save}
