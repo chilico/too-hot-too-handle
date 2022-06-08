@@ -1,0 +1,13 @@
+.styling-for-links {
+  color: $lighter_grey;
+
+  &:hover{
+    color: #7E868D;
+    cursor:pointer;
+  }
+}
+
+.styling-for-links.active {
+  color: #393c3f;
+  font-weight: bolder;
+}
