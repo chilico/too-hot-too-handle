@@ -7,6 +7,7 @@ class ChillisController < ApplicationController
   end
 
   def show
+    @user = @chilli.user
   end
 
   def new
