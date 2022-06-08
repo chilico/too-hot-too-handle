@@ -5,6 +5,11 @@
   width: 275px;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .type-text {
