@@ -95,7 +95,7 @@ users.sample(4).each do |user|
     chilli = Chilli.new
 
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize}"
+    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
     chilli.heat = HEAT.keys.sample.to_s
     chilli.shu = "#{HEAT[chilli.heat.to_sym].min}-#{HEAT[chilli.heat.to_sym].max + 1}"
@@ -122,7 +122,7 @@ users.sample(4).each do |user|
     chilli = Chilli.new
 
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize}"
+    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
     chilli.heat = HEAT.keys.sample.to_s
     chilli.shu = "#{HEAT[chilli.heat.to_sym].min}-#{HEAT[chilli.heat.to_sym].max + 1}"
@@ -149,7 +149,7 @@ users.each do |user|
     chilli = Chilli.new
 
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize}"
+    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
     chilli.heat = HEAT.keys.sample.to_s
     chilli.shu = HEAT[chilli.heat.to_sym].to_a.sample
@@ -170,3 +170,6 @@ users.each do |user|
 end
 
 puts 'Successfully seeded database!'
+
+# manual (rails c) fix for underscores in name
+# Chilli.all.each {|i| i.variety = i.variety.gsub('_', ' ') ; i.save}
