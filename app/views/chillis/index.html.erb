@@ -4,12 +4,24 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" data-controller="index-filter">
   <%# TODO: add search bar to update result %>
-  <div class="d-flex justify-content-around p-5">
-    <a class="btn btn-filter">Dried</a>
+  <div class="d-flex justify-content-around p-5" >
+    <%# <a class="btn btn-filter">Dried</a>
     <a class="btn btn-filter">Fresh</a>
-    <a class="btn btn-filter">Seeds</a>
+    <a class="btn btn-filter">Seeds</a> %>
+    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="dried">
+      Dried
+      <input type="checkbox" class="checkbox">
+    </label>
+    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="fresh">
+      Fresh
+      <input type="checkbox" class="checkbox">
+    </label>
+    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="seeds">
+      Seeds
+      <input type="checkbox" class="checkbox">
+    </label>
   </div>
 
   <%# header showing number of results %>
@@ -19,7 +31,7 @@
 
   <div class="row justify-content-between">
     <% @chillis.each do |chilli| %>
-        <%= link_to chilli, class: "card-link col-12 col-md-6 col-lg-3 nopadding gy-4" do %>
+        <%= link_to chilli, class: "card-link col-12 col-md-6 col-lg-3 nopadding gy-4", data: {index_filter_target: "chilli", chilli_type: chilli.chilli_type} do %>
           <div class="card-product">
             <%= cl_image_tag chilli.photos.first.key %>
             <div>

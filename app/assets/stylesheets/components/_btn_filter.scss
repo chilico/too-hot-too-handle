@@ -13,10 +13,13 @@
     color: white;
     cursor: pointer;
   }
+
+  input {
+    display: none;
+  }
 }
 
-.btn-filter .active {
+.btn-filter.active {
   background-color: rgba(251, 139, 36, 0.7);
-  border-color: #FB8B24;
   color: white;
 }
