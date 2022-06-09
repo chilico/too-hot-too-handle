@@ -2,6 +2,21 @@
   <div class="container">
     <h1>Spice up your life</h1>
   </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <%= form_tag root_path, method: :get, class: "m-4 col-6" do %>
+        <div class="input-group custom-search">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control rounded-pill custom-input",
+          placeholder: "Search Chilli"
+        %>
+        <%= submit_tag "Search", class: "rounded-pill custom-btn" %>
+        <i class="fa fa-search pt-5 text-light"></i>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <h2 class="heading h-size-36 py-4">Or explore our chillis...</h2>
 <div class="section py-2 my-4">
