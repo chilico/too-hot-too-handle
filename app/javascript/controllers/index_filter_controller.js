@@ -9,37 +9,37 @@ export default class extends Controller {
     console.log(this.chilliTargets)
   }
 
-  filterResults(e) {
-    e.preventDefault()
-    // console.log(e.target.dataset.chilliType)
-    e.target.classList.toggle("active")
+  // filterResults(e) {
+  //   e.preventDefault()
+  //   // console.log(e.target.dataset.chilliType)
+  //   e.target.classList.toggle("active")
 
-    this.filterTargets.forEach(filter => {
-      console.log(filter.dataset)
-      if(filter.className === "active"){
-        this.chilliTargets.forEach(chilli => {
-          if(chilli.dataset.chilliType === filter.dataset.chilliType){
-            chilli.classList.add("d-none")
-          } else {
-            chilli.classList.remove("d-none")
-          }
-          })
-      }
-      // if(e.target.dataset.input.checked){
-      //   filter.classList.add("active")
-      // } else {
-      //   filter.classList.remove("active")
-      // }
-    })
+  //   this.filterTargets.forEach(filter => {
+  //     console.log(filter.dataset)
+  //     if(filter.className === "active"){
+  //       this.chilliTargets.forEach(chilli => {
+  //         if(chilli.dataset.chilliType === filter.dataset.chilliType){
+  //           chilli.classList.add("d-none")
+  //         } else {
+  //           chilli.classList.remove("d-none")
+  //         }
+  //         })
+  //     }
+  //     // if(e.target.dataset.input.checked){
+  //     //   filter.classList.add("active")
+  //     // } else {
+  //     //   filter.classList.remove("active")
+  //     // }
+  //   })
 
-    this.chilliTargets.forEach(chilli => {
-      console.log(chilli.dataset)
-      if(chilli.dataset.chilliType === e.target.dataset.chilliType){
-        chilli.classList.add("d-none")
-      } else {
-        chilli.classList.remove("d-none")
-      }
-      })
-    };
+  //   this.chilliTargets.forEach(chilli => {
+  //     console.log(chilli.dataset)
+  //     if(chilli.dataset.chilliType === e.target.dataset.chilliType){
+  //       chilli.classList.add("d-none")
+  //     } else {
+  //       chilli.classList.remove("d-none")
+  //     }
+  //     })
+  //   };
 
 }
