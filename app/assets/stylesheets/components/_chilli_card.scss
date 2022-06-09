@@ -1,3 +1,71 @@
+.chilli_card {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding-top: 60px;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+
+  h3 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 26px;
+  }
+}
+
+.card-product {
+  overflow: hidden;
+  height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+  img {
+    height: 100%;
+    width: 110px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+}
+
+.card-product .card-product-infos {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+
+.bottom-right {
+  position: absolute;
+  right: 36px;
+  bottom: 0px;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
 .card-product {
   box-sizing: content-box;
   overflow: hidden;

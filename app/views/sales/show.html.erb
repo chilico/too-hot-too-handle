@@ -1,0 +1,33 @@
+<div class="background">
+  <div class="container contianer-show">
+
+    <div class="row">
+      <div class="col-12 my-4">
+        <p><%= link_to "< Continue Shopping", chillis_path, class: "styling-for-links" %></p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h2>Your Basket</h2>
+        <div class="d-flex flex-column gradient-background align-items-center">
+          <% @sale.chillis.all.each do |chilli| %>
+            <div class="w-75">
+              <%= link_to chilli, class: "card-link col-8 col-xl-3 nopadding m-3" do %>
+                <div class="card-product rounded">
+                    <%= cl_image_tag chilli.photos.first.key %>
+                  <div class="card-product-infos">
+                    <h2><%= chilli.variety %></h2>
+                    <h2 class="text-end px-4">£<%= number_with_precision(chilli.price, precision: 2)  %></h2>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <hr class="hr-black">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
