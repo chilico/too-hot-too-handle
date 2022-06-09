@@ -3,7 +3,11 @@ class ChillisController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @chillis = Chilli.all
+    if params[:query].present?
+      @chillis = Chilli.search("%#{params[:query]}%")
+    else
+      @chillis = Chilli.all
+    end
   end
 
   def show

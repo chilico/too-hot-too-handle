@@ -1,0 +1,23 @@
+.custom-search {
+  position: relative;
+  margin-top: 110px;
+}
+
+.custom-input {
+  border: 2px solid #9A031E;
+  background-color: whitesmoke;
+}
+
+.custom-btn {
+  color: whitesmoke;
+  position: absolute;
+  right: 20px;
+  line-height: 3.1;
+  border: 0;
+  background: #9A031E;
+  outline: none;
+  margin: 5px 0 0 0;
+  padding: 2px 16px;
+  border-radius: 100px;
+  z-index: 8;
+}

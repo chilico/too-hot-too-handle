@@ -1,6 +1,21 @@
-<div class="banner vh-25" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
   <div class="container">
     <h1>Spice up your life</h1>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <%= form_tag chillis_path, method: :get, class: "m-4 col-6" do %>
+        <div class="input-group custom-search">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control rounded-pill custom-input",
+          placeholder: "Search Chilli"
+        %>
+        <%= submit_tag "Search", class: "rounded-pill custom-btn" %>
+        <i class="fa fa-search pt-5 text-light"></i>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
