@@ -4,7 +4,7 @@ class ChillisController < ApplicationController
 
   def index
     if params[:query].present?
-      @chillis = Chilli.search("%#{params[:query]}%")
+      @chillis = Chilli.search("#{params[:query]}")
     else
       @chillis = Chilli.all
     end

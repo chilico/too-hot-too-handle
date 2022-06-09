@@ -10,6 +10,6 @@ class Chilli < ApplicationRecord
     # all attributes will be sent
     attributes :variety, :chilli_type, :species, :description, :heat
 
-    searchableAttributes ['variety', 'chilli_type', 'species', 'heat', 'unordered(description)']
+    searchableAttributes ['chilli_type', 'species', 'heat', 'variety']
   end
 end
