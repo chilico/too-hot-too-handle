@@ -1,0 +1,67 @@
+<div class="banner vh-25" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
+  <div class="container">
+    <h1>Spice up your life</h1>
+  </div>
+</div>
+
+<div class="container" data-controller="index-filter">
+  <%# TODO: add search bar to update result %>
+  <div class="d-flex justify-content-around p-5" >
+    <%# <a class="btn btn-filter">Dried</a>
+    <a class="btn btn-filter">Fresh</a>
+    <a class="btn btn-filter">Seeds</a> %>
+    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="dried">
+      Dried
+      <input type="checkbox" class="checkbox">
+    </label>
+    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="fresh">
+      Fresh
+      <input type="checkbox" class="checkbox">
+    </label>
+    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="seeds">
+      Seeds
+      <input type="checkbox" class="checkbox">
+    </label>
+  </div>
+
+  <%# header showing number of results %>
+  <h1 class="heading-results pt-5">
+    <%= @chillis.count %> Results
+  </h1>
+
+  <div class="row justify-content-between">
+    <% @chillis.each do |chilli| %>
+        <%= link_to chilli, class: "card-link col-12 col-md-6 col-lg-3 nopadding gy-4", data: {index_filter_target: "chilli", chilli_type: chilli.chilli_type} do %>
+          <div class="card-product">
+            <%= cl_image_tag chilli.photos.first.key %>
+            <div>
+              <div class="card-product-infos">
+                <h2><%= chilli.variety.capitalize() %></h2>
+                <h3><%= chilli.species.capitalize() %></h3>
+                <h3><%= chilli.chilli_type.capitalize() %></h3>
+              </div>
+              <div class="d-flex justify-content-around">
+                <div>
+                  <% case chilli.heat %>
+                  <% when "none" %>
+                    <h3><%= "No heat" %></h3>
+                  <% when "mild" %>
+                    <h3><%= "🌶" %></h3>
+                  <% when "medium" %>
+                    <h3><%= "🌶🌶" %></h3>
+                  <% when "hot" %>
+                    <h3><%= "🌶🌶🌶" %></h3>
+                  <% when "extreme" %>
+                    <h3><%= "🌶🌶🌶🌶" %></h3>
+                  <% end %>
+                </div>
+                <h3>£<%= number_with_precision(chilli.price, precision: 2) %></h2>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+
+
+</div>

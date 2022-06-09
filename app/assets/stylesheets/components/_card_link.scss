@@ -1,0 +1,13 @@
+.card-link {
+  font-family: $body-font;
+  color: $dark_grey;
+  text-decoration: none;
+  box-sizing: content-box;
+
+
+  &:hover{
+    font-family: $body-font;
+    color: $dark_grey;
+    text-decoration: none;
+  }
+}
