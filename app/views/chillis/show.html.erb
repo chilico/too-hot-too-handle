@@ -2,10 +2,8 @@
   <div class="container contianer-show">
 
     <div class="row">
-      <div class="col-12">
-        <div>
-          <p><%= link_to "< Continue Shopping", chillis_path, class: "styling-for-links" %></p>
-        </div>
+      <div class="col-12 my-4">
+        <p><%= link_to "< Continue Shopping", chillis_path, class: "styling-for-links" %></p>
       </div>
     </div>
 
@@ -17,7 +15,7 @@
             <div class="carousel-inner">
               <% @chilli.photos.each_with_index do |photo, index| %>
                 <div class="carousel-item <%= "active" if index == 0 %>">
-                  <%= cl_image_tag photo.key, height: 300, over_flow: :hidden, object_fit: :cover, alt: "Chilli Photo", class: "d-block" %>
+                  <%= cl_image_tag photo.key, height: 350, over_flow: :hidden, object_fit: :cover, alt: "Chilli Photo", class: "d-block" %>
                 </div>
               <% end %>
             </div>
@@ -33,16 +31,57 @@
         </div>
       </div>
 
-      <%# chilli info %>
-      <div class="col-12 col-md-6 p-4 d-flex flex-column justify-content-center">
+      <%# key chilli info %>
+      <div class="col-12 col-md-6 p-4 d-flex flex-column justify-content-center align-items-center">
         <h2><%= @chilli.variety %></h2>
-        <div class="d-flex">
-          <div>
+        <div class="d-flex m-4">
+          <div class="mx-4">
             <p><em>Capsicum <%= @chilli.species %></em></p>
             <p><%= @chilli.chilli_type %></p>
           </div>
+          <div class="d-flex flex-column align-items-center">
+            <% case @chilli.heat  %>
+            <% when 'none' %>
+              <%= render 'heat-none' %>
+            <% when 'mild' %>
+              <%= render 'heat-mild' %>
+            <% when 'medium' %>
+              <%= render 'heat-medium' %>
+            <% when 'hot' %>
+              <%= render 'heat-hot' %>
+            <% when 'extreme' %>
+              <%= render 'heat-extreme' %>
+            <% end %>
+            <p><%= @chilli.shu.is_a?(Range) ? "#{@chilli.shu.min}-#{@chilli.shu.max}" : @chilli.shu %> SHU</p>
+          </div>
         </div>
-        <a href="<%#= link_to new_sale_chilli %>" class="btn btn-cart">ADD TO CART</a>
+        <a href="<%#= link_to new_sale_chilli %>#" class="btn btn-cart">ADD TO CART</a>
+      </div>
+
+      <%# detailed chilli info %>
+      <div class="row my-5">
+        <div class="d-flex flex-column align-items-start justify-content-start col-12 col-md-6">
+          <div class="d-flex justify-content-between w-100">
+            <p>Date Available:<br><%= @chilli.date_available <= Date.today ? 'Now' : @chilli.date_available %></p>
+            <p>Qauntity Available:<br><%= @chilli.quantity %></p>
+          </div>
+          <p class="mt-4"><%= @chilli.description %></p>
+          <h2 class="mt-4">£<%=  number_with_precision(@chilli.price, precision: 2) %></h2>
+        </div>
+        <div class="col-12 col-md-6 d-flex flex-column align-items-end">
+          <% if @chilli.user.avatar.attached? %>
+              <%= link_to user_path(@chilli.user), class:"styling-for-links text-decoration-none" do %>
+                <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= cl_image_tag @chilli.user.avatar.key, gravity: "faces", crop: "fill", class: "avatar-large" %></p>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(@chilli.user), class:"styling-for-links text-decoration-none" do %>
+                <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= image_tag "user.png", class: "avatar-large" %></p>
+              <% end %>
+            <% end %>
+            <a href="<%#= link_to chat_room %>#" class="btn btn-outline-dark rounded-pill">Contact Seller</a>
+        </div>
+
+
       </div>
 
     </div>
