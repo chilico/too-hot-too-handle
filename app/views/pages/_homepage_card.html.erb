@@ -1,3 +1,5 @@
-<div class="col-12 homepage-card m-3 p-0" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url("#{image_path}") %>');">
-    <span class="homepage-text py-2 heading h-size-32"><%= title %></span>
-</div>
+<%= link_to chillis_path("#{card_type}" => title.downcase), :class => 'card-default' do %>
+  <div class="col-12 homepage-card m-3 p-0" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url("#{image_path}") %>');">
+      <span class="homepage-text py-2 heading h-size-32"><%= title %></span>
+  </div>
+<% end %>
