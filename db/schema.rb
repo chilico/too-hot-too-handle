@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_07_111958) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_09_121202) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111958) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "basket"
     t.string "shipping_method"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111958) do
   end
 
   create_table "sales_chillis", force: :cascade do |t|
-    t.integer "quantity"
+    t.integer "quantity", default: 1
     t.bigint "sale_id", null: false
     t.bigint "chilli_id", null: false
     t.datetime "created_at", null: false

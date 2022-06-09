@@ -1,3 +1,34 @@
 body {
   background-color: $dark_blue;
+
+  h1 {
+    color: $off-white;
+  }
+
+  h2 {
+    color: $off-white;
+  }
+
+  h3 {
+    color: $off-white;
+  }
+
+  p {
+    color: $off-white;
+  }
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .hr-black {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    margin: 1em 0;
+    padding: 0;
+    width: 75%;
+  }
 }

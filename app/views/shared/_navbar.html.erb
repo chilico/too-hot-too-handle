@@ -1,8 +1,13 @@
+<div class="spacer"></div>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+    <div class="d-flex align-items-center">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%# <%= image_tag "jalapeno.png" %>
+        <i class="fa-regular fa-pepper-hot gradient-text h1"></i>
+      <% end %>
+      <h2 class="gradient-text">2Hot2Handle</h2>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,17 +16,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <%= link_to sale_path(current_user.sales.where.not(status: 'completed').first), class: "text-decoration-none" do %>
+            <i class="fa-solid fa-cart-shopping text-icon-small"></i>
+            <% if current_user.sales.where.not(status: 'completed').first.chillis.all.count > 0 %>
+              <span class='badge basket-count'><%= current_user.sales.where.not(status: 'completed').first.chillis.all.count %></span>
+            <% end %>
+          <% end %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key, gravity: "faces", crop: "fill", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

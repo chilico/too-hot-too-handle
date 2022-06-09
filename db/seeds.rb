@@ -171,5 +171,9 @@ end
 
 puts 'Successfully seeded database!'
 
-# manual (rails c) fix for underscores in name
-# Chilli.all.each {|i| i.variety = i.variety.gsub('_', ' ') ; i.save}
+#### manual (rails c) fixes ###
+# underscores in name (chilli.variety)
+# Chilli.all.each {|c| c.update(variety: c.variety.gsub('_', ' '))}
+
+# adding sales to users
+# User.all.each {|u| Sale.create(user: u, status: 'basket')}
