@@ -49,8 +49,8 @@
               <%= render 'heat-medium' %>
             <% when 'hot' %>
               <%= render 'heat-hot' %>
-            <% when 'none' %>
-              <%= render 'heat-none' %>
+            <% when 'extreme' %>
+              <%= render 'heat-extreme' %>
             <% end %>
             <p><%= @chilli.shu.is_a?(Range) ? "#{@chilli.shu.min}-#{@chilli.shu.max}" : @chilli.shu %> SHU</p>
           </div>
