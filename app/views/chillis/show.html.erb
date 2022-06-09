@@ -52,10 +52,10 @@
             <% when 'extreme' %>
               <%= render 'heat-extreme' %>
             <% end %>
-            <p><%= @chilli.shu.is_a?(Range) ? "#{@chilli.shu.min}-#{@chilli.shu.max}" : @chilli.shu %> SHU</p>
+            <p><%= @chilli.shu.is_a?(Range) ? "#{@chilli.shu.min}-#{@chilli.shu.max}" : number_with_delimiter(@chilli.shu, :delimiter => ',') %> SHU</p>
           </div>
         </div>
-        <a href="<%#= link_to new_sale_chilli %>#" class="btn btn-cart">ADD TO CART</a>
+        <%= link_to 'ADD TO CART', chilli_sales_chillis_path(@chilli), data: {turbo_method: 'POST'}, class: "btn btn-cart" %>
       </div>
 
       <%# detailed chilli info %>
@@ -78,7 +78,7 @@
                 <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= image_tag "user.png", class: "avatar-large" %></p>
               <% end %>
             <% end %>
-            <a href="<%#= link_to chat_room %>#" class="btn btn-outline-dark rounded-pill">Contact Seller</a>
+            <a href="<%#= link_to chat_room %>#" class="btn btn-outline-light rounded-pill">Contact Seller</a>
         </div>
 
 
