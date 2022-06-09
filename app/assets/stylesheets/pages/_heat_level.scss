@@ -1,0 +1,19 @@
+.chilli-center {
+  background-size: cover;
+  background-position: center;
+  width:150px;
+  height:170px;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .chilli-center {
+    width:80px;
+    height:100px;
+  }
+}

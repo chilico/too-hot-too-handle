@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
+  <div class="container">
+    <h1>Spice up your life</h1>
+  </div>
+</div>
+<h2 class="heading h-size-36 py-4">Or explore our chillis...</h2>
+<div class="section py-2 my-4">
+  <h3 class="heading h-size-32 py-3">...by type</h3>
+  <div class="container py-2">
+    <div class="row d-flex justify-content-center">
+      <%= render "type_card", image: "fresh-chilli.jpg", title: "Fresh" %>
+      <%= render "type_card", image: "seed-chilli.jpg", title: "Seed" %>
+      <%= render "type_card", image: "dried-chilli.jpg", title: "Dried" %>
+    </div>
+  </div>
+</div>
+<div class="section py-2 my-4">
+  <h3 class="heading h-size-32 py-3">...by heat level</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <%= render "heat_level" %>
+      </div>
+    </div>
+    <div class="row">
+      <span class="heading h-size-24 py-2">No heat</span>
+    </div>
+  </div>
+</div>
+<div class="section py-2 my-4">
+  <h3 class="heading h-size-32 py-3">...by species</h3>
+
+</div>

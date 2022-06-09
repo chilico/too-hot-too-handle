@@ -1,0 +1,23 @@
+.type-card {
+  background-size: cover;
+  background-position: center;
+  height: 285px;
+  width: 275px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.type-text {
+  display: block;
+  background-color: rgba(251, 139, 36, 0.7);
+  border-radius: 20px 20px 0 0;
+  color: white;
+  font-size: 24px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+}
