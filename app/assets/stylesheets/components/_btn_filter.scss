@@ -1,0 +1,22 @@
+.btn-filter {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #FB8B24;
+  border: 2;
+  color: #FB8B24;
+  width: 150px;
+  border-radius: 30px;
+  font-size: 20;
+
+  &:hover {
+    background-color: rgba(251, 139, 36, 0.7);
+    border-color: #FB8B24;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.btn-filter .active {
+  background-color: rgba(251, 139, 36, 0.7);
+  border-color: #FB8B24;
+  color: white;
+}

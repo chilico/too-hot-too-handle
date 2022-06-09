@@ -1,11 +1,23 @@
+<div class="banner vh-25" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
+  <div class="container">
+    <h1>Spice up your life</h1>
+  </div>
+</div>
+
 <div class="container">
   <%# TODO: add search bar to update result %>
+  <div class="d-flex justify-content-around p-5">
+    <a class="btn btn-filter">Dried</a>
+    <a class="btn btn-filter">Fresh</a>
+    <a class="btn btn-filter">Seeds</a>
+  </div>
+
   <%# header showing number of results %>
-  <h1 class="p-4">
+  <h1 class="heading-results pt-5">
     <%= @chillis.count %> Results
   </h1>
 
-  <div class="row justify-content-around">
+  <div class="row justify-content-between">
     <% @chillis.each do |chilli| %>
         <%= link_to chilli, class: "card-link col-12 col-md-6 col-lg-3 nopadding gy-4" do %>
           <div class="card-product">
@@ -16,7 +28,7 @@
                 <h3><%= chilli.species.capitalize() %></h3>
                 <h3><%= chilli.chilli_type.capitalize() %></h3>
               </div>
-              <div class=".card-product-bottom-text d-flex justify-content-between w-100">
+              <div class="d-flex justify-content-around">
                 <div>
                   <% case chilli.heat %>
                   <% when "none" %>
