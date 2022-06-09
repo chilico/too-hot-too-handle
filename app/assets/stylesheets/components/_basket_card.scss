@@ -1,0 +1,43 @@
+.nopadding {
+  padding: 0 !important;
+}
+
+.basket-card-product {
+  overflow: hidden;
+  height: 100px;
+  // display: flex;
+  // justify-content: flex-start;
+  // align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+
+  img {
+    height: 100%;
+    width: 110px;
+    object-fit: cover;
+  }
+
+  h2 {
+    color: $dark_grey;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+}
+
+.basket-card-product .basket-card-product-infos {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+}
