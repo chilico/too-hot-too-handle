@@ -1,5 +1,4 @@
 .homepage-card {
-  background-size: cover;
   background-position: center;
   height: 285px;
   width: 275px;
@@ -10,6 +9,15 @@
   &:hover {
     transform: scale(1.1);
   }
+}
+
+.species-card {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.chillitype-card {
+  background-size: cover;
 }
 
 .homepage-text {

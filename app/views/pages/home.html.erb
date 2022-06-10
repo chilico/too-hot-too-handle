@@ -23,9 +23,9 @@
   <h3 class="heading text-size-32 py-3">...by type</h3>
   <div class="container py-2">
     <div class="row d-flex justify-content-center">
-      <%= render "homepage_card", card_type: "query", image_path: "homepage/fresh-chilli.jpg", title: "Fresh" %>
-      <%= render "homepage_card", card_type: "query", image_path: "homepage/seed-chilli.jpg", title: "Seeds" %>
-      <%= render "homepage_card", card_type: "query", image_path: "homepage/dried-chilli.jpg", title: "Dried" %>
+      <%= render "chillitype_card", image_path: "homepage/fresh-chilli.jpg", title: "Fresh" %>
+      <%= render "chillitype_card", image_path: "homepage/seed-chilli.jpg", title: "Seeds" %>
+      <%= render "chillitype_card", image_path: "homepage/dried-chilli.jpg", title: "Dried" %>
     </div>
   </div>
 </div>
@@ -46,13 +46,13 @@
   <h3 class="heading text-size-32 py-3">...by species</h3>
   <div class="container py-2">
     <div class="row d-flex justify-content-center">
-      <%= render "homepage_card", card_type: "query", image_path: "species-icons/capsicum-annuum.png", title: "Annuum" %>
-      <%= render "homepage_card", card_type: "query", image_path: "species-icons/capsicum-baccatum.png", title: "Baccatum" %>
-      <%= render "homepage_card", card_type: "query", image_path: "species-icons/capsicum-chinense.png", title: "Chinense" %>
+      <%= render "species_card", image_path: "species-icons/capsicum-annuum.png", title: "annuum", search:"Annuum" %>
+      <%= render "species_card", image_path: "species-icons/capsicum-baccatum.png", title: "baccatum", search:"Baccatum" %>
+      <%= render "species_card", image_path: "species-icons/capsicum-chinense.png", title: "chinense", search:"Chinense" %>
     </div>
     <div class="row d-flex justify-content-center">
-      <%= render "homepage_card", card_type: "query", image_path: "species-icons/capsicum-frutescens.png", title: "Frutescens" %>
-      <%= render "homepage_card", card_type: "query", image_path: "species-icons/capsicum-pubescens.png", title: "Pubescens" %>
+      <%= render "species_card", image_path: "species-icons/capsicum-frutescens.png", title: "frutescens", search:"Frutescens" %>
+      <%= render "species_card", image_path: "species-icons/capsicum-pubescens.png", title: "pubescens", search:"Pubescens" %>
     </div>
   </div>
 </div>
