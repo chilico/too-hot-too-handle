@@ -19,28 +19,28 @@
   </div>
 </div>
 
-<div class="container" data-controller="index-filter">
+<div class="container" data-controller="index-filter" data-index-filter-chilli-count-value="<%= @chillis.count %>">
   <%# TODO: add search bar to update result %>
   <div class="d-flex justify-content-around p-5" >
     <%# <a class="btn btn-filter">Dried</a>
     <a class="btn btn-filter">Fresh</a>
     <a class="btn btn-filter">Seeds</a> %>
-    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="dried">
+    <label class="btn btn-filter inactive" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="dried">
       Dried
       <input type="checkbox" class="checkbox">
     </label>
-    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="fresh">
+    <label class="btn btn-filter inactive" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="fresh">
       Fresh
       <input type="checkbox" class="checkbox">
     </label>
-    <label class="btn btn-filter active" data-action="click->index-filter#filterResults" data-index-filter-target="filter" data-chilli-type="seeds">
+    <label class="btn btn-filter inactive" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="seeds">
       Seeds
       <input type="checkbox" class="checkbox">
     </label>
   </div>
 
   <%# header showing number of results %>
-  <h1 class="heading-results pt-5">
+  <h1 class="heading-results pt-5" data-index-filter-target="results">
     <%= @chillis.count %> Results
   </h1>
 
