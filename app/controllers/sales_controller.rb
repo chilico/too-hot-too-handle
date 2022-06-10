@@ -7,7 +7,7 @@ class SalesController < ApplicationController
   def update
     @sale.update(status: 'confirmed')
     Sale.create(user: current_user)
-    redirect_to order_confirmation_path(@sale)
+    redirect_to order_confirmation_path(@sale), status: :see_other
   end
 
   def confirm
