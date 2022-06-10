@@ -81,6 +81,7 @@ end
 users = User.all
 
 # chilli seeds
+puts 'Seeding 1 to 3 chilli seeds for 3 users'
 users.sample(4).each do |user|
   rand(1..3).times do
     species = SPECIES.keys.sample.to_s
@@ -109,6 +110,7 @@ users.sample(4).each do |user|
 end
 
 # dried chillies
+puts 'Seeding 1 to 3 dried chillies for 3 users'
 users.sample(4).each do |user|
   rand(1..3).times do
     species = SPECIES.keys.sample.to_s
@@ -137,6 +139,7 @@ users.sample(4).each do |user|
 end
 
 # fresh chillies
+puts 'Seeding 4 fresh chillies for each user'
 users.each do |user|
   4.times do
     species = SPECIES.keys.sample.to_s
