@@ -70,28 +70,18 @@
         </div>
         <div class="col-12 col-md-6 d-flex flex-column align-items-end">
           <% if @chilli.user.avatar.attached? %>
-              <%= link_to user_path(@chilli.user), class:"styling-for-links text-decoration-none" do %>
-                <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= cl_image_tag @chilli.user.avatar.key, gravity: "faces", crop: "fill", class: "avatar-large" %></p>
-              <% end %>
-            <% else %>
-              <%= link_to user_path(@chilli.user), class:"styling-for-links text-decoration-none" do %>
-                <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= image_tag "user.png", class: "avatar-large" %></p>
-              <% end %>
+            <%= link_to user_path(@chilli.user), class:"styling-for-links text-decoration-none" do %>
+              <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= cl_image_tag @chilli.user.avatar.key, gravity: "faces", crop: "fill", class: "avatar-large" %></p>
             <% end %>
-            <a href="<%#= link_to chat_room %>#" class="btn btn-outline-light rounded-pill">Contact Seller</a>
+          <% else %>
+            <%= link_to user_path(@chilli.user), class:"styling-for-links text-decoration-none" do %>
+              <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= image_tag "user.png", class: "avatar-large" %></p>
+            <% end %>
+          <% end %>
+          <a href="<%#= link_to chat_room %>#" class="btn btn-outline-light rounded-pill">Contact Seller</a>
         </div>
 
-
       </div>
-
     </div>
-
-
-
-
-
-
-
-
   </div>
 </div>

@@ -16,10 +16,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <%= link_to sale_path(current_user.sales.where.not(status: 'completed').first), class: "text-decoration-none" do %>
+          <%= link_to sale_path(current_user.sales.where.not(status: 'confirmed').first), class: "text-decoration-none" do %>
             <i class="fa-solid fa-cart-shopping text-icon-small"></i>
             <% if current_user.sales.where.not(status: 'completed').first.chillis.all.count > 0 %>
-              <span class='badge basket-count'><%= current_user.sales.where.not(status: 'completed').first.chillis.all.count %></span>
+              <span class='badge basket-count'><%= current_user.sales.where.not(status: 'confirmed').first.chillis.all.count %></span>
             <% end %>
           <% end %>
           <li class="nav-item dropdown">
