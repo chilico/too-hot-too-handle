@@ -85,14 +85,15 @@ users.sample(4).each do |user|
   rand(1..3).times do
     species = SPECIES.keys.sample.to_s
     variety = SPECIES[species.to_sym].sample
+    heat = @CHILLI_SHU[species.to_sym][variety.to_sym].keys[0]
 
     chilli = Chilli.new
 
     chilli.user = user
     chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
-    chilli.heat = HEAT.keys.sample.to_s
-    chilli.shu = "#{HEAT[chilli.heat.to_sym].min}-#{HEAT[chilli.heat.to_sym].max + 1}"
+    chilli.heat = heat.to_s
+    chilli.shu = @CHILLI_SHU[species.to_sym][variety.to_sym][heat].to_a.sample
     chilli.quantity = rand(1..100)
     chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY.sample.capitalize}. ")
     chilli.chilli_type = 'seeds'
@@ -112,14 +113,15 @@ users.sample(4).each do |user|
   rand(1..3).times do
     species = SPECIES.keys.sample.to_s
     variety = SPECIES[species.to_sym].sample
+    heat = @CHILLI_SHU[species.to_sym][variety.to_sym].keys[0]
 
     chilli = Chilli.new
 
     chilli.user = user
     chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
-    chilli.heat = HEAT.keys.sample.to_s
-    chilli.shu = "#{HEAT[chilli.heat.to_sym].min}-#{HEAT[chilli.heat.to_sym].max + 1}"
+    chilli.heat = heat.to_s
+    chilli.shu = @CHILLI_SHU[species.to_sym][variety.to_sym][heat].to_a.sample
     chilli.quantity = rand(1..100)
     chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY.sample.capitalize}. ")
     chilli.chilli_type = 'dried'
@@ -139,14 +141,15 @@ users.each do |user|
   4.times do
     species = SPECIES.keys.sample.to_s
     variety = SPECIES[species.to_sym].sample
+    heat = @CHILLI_SHU[species.to_sym][variety.to_sym].keys[0]
 
     chilli = Chilli.new
 
     chilli.user = user
     chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
     chilli.species = species
-    chilli.heat = HEAT.keys.sample.to_s
-    chilli.shu = HEAT[chilli.heat.to_sym].to_a.sample
+    chilli.heat = heat.to_s
+    chilli.shu = @CHILLI_SHU[species.to_sym][variety.to_sym][heat].to_a.sample
     chilli.quantity = rand(1..100)
     chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY.sample.capitalize}. ")
     chilli.chilli_type = 'fresh'
