@@ -1,5 +1,19 @@
-.nopadding {
-  padding: 0 !important;
+.basket-container{
+  h2 {
+    color: $dark_grey;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    color: $dark_grey;
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
 }
 
 .basket-card-product {
@@ -15,8 +29,9 @@
 
   img {
     height: 100%;
-    width: 110px;
+    width: 100px;
     object-fit: cover;
+    border-bottom-right-radius: 16px;
   }
 
   h2 {
@@ -40,4 +55,18 @@
   align-items: flex-start;
   justify-content: space-between;
   padding: 10px;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.hr-black {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 1em 0;
+  padding: 0;
+  width: 50%;
 }
