@@ -6,9 +6,8 @@ class SalesController < ApplicationController
 
   def update
     @sale.update(status: 'confirmed')
-    new_sale = Sale.create(user: current_user)
-    redirect_to update_basket_path(new_sale)
-    # redirect_to order_confirmation_path(@sale)
+    Sale.create(user: current_user)
+    redirect_to order_confirmation_path(@sale)
   end
 
   def confirm
@@ -18,6 +17,6 @@ class SalesController < ApplicationController
 
   def set_basket
     sales = Sale.where(user: current_user)
-    @sale = sales.where.not(status: 'complete').first
+    @sale = sales.where.not(status: 'confirmed').first
   end
 end

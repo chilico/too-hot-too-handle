@@ -26,6 +26,7 @@
               <% end %>
             </div>
           <% end %>
+          <% if @sale.chillis.all.count > 0 %>
           <hr class="hr-black">
           <div class="d-flex justify-content-between w-75">
             <p>Shipping</p>
@@ -35,7 +36,12 @@
             <h2>TOTAL</h2>
             <h2>£<%= number_with_precision(@sale.chillis.all.map(&:price).reduce(:+), precision: 2) %></h2>
           </div>
-          <%= link_to 'Checkout', update_basket_path(@sale), data: {turbo_method: 'PATCH'}, class: "btn btn-lg btn-outline-dark text-light rounded-pill my-4 px-4" %>
+            <%= link_to 'Checkout', update_basket_path(@sale), data: {turbo_method: 'PATCH'}, class: "btn btn-lg btn-outline-dark text-light rounded-pill my-4 px-4" %>
+          <% else %>
+            <div class="d-flex justify-content-center w-75 pb-3 ">
+              <h2>Your basket is Empty!</h2>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
