@@ -12,7 +12,7 @@ class SalesChillisController < ApplicationController
 
   def set_sale
     sales = Sale.where(user: current_user)
-    @sale = sales.where.not(status: 'complete').first
+    @sale = sales.where.not(status: 'confirmed').first
   end
 
   def sales_chilli_params
