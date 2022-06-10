@@ -1,5 +1,6 @@
 require_relative 'seeds_areas'
 require_relative 'seeds_images'
+require_relative 'seeds_heat'
 
 # resources constants
 SPECIES = {
@@ -25,13 +26,6 @@ SPICY = %w[
   firey
   blazing
 ]
-
-HEAT = {none: (0...100),
-        mild: (100...2_500),
-        medium: (2_500...25_000),
-        hot: (25_000...350_000),
-        extreme:(350_000..1_500_000)
-      }
 
 # users
 puts 'Creating Chris, Maryam and Estef users ...'
