@@ -25,13 +25,14 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  border-radius: 16px;
 
   img {
     height: 100%;
     width: 100px;
     object-fit: cover;
     border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
   }
 
   h2 {
