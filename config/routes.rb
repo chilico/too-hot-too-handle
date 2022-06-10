@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[show]
   resources :sales, only: %i[show]
+
 end
