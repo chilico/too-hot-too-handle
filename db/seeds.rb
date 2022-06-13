@@ -11,21 +11,65 @@ SPECIES = {
   pubescens: %w[manzano rocoto]
 }
 
-SPICY = %w[
-  spicy
-  piquant
-  tangy
-  peppery
-  hot
-  zesty
-  sharp
-  pungent
-  sapid
-  atomic
-  nuclear
-  firey
-  blazing
-]
+# SPICY = %w[
+#   spicy
+#   piquant
+#   tangy
+#   peppery
+#   hot
+#   zesty
+#   sharp
+#   pungent
+#   sapid
+#   atomic
+#   nuclear
+#   firey
+#   blazing
+# ]
+
+SPICY = {
+  none: %w[
+    piquant
+    tangy
+    peppery
+    zesty
+    pungent
+    sapid
+  ],
+  mild: %w[
+    piquant
+    tangy
+    peppery
+    zesty
+    sharp
+    pungent
+    sapid
+  ],
+  medium: %w[
+    spicy
+    tangy
+    hot
+    zesty
+    sharp
+    pungent
+    sapid
+  ],
+  hot: %w[
+    spicy
+    peppery
+    hot
+    sapid
+    firey
+    blazing
+  ],
+  extreme: %w[
+    sapid
+    atomic
+    nuclear
+    firey
+    blazing
+  ]
+}
 
 # users
 puts 'Creating Chris, Maryam and Estef users ...'
@@ -89,25 +133,32 @@ users.sample(4).each do |user|
     heat = @CHILLI_SHU[species.to_sym][variety.to_sym].keys[0]
 
     chilli = Chilli.new
-
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
+
+    if rand(0..1.0).round(1) > 0.6
+      chilli.variety = "#{variety.capitalize.gsub('_', ' ')}"
+    else
+      chilli.variety = "#{SPICY[heat].sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
+    end
+
     chilli.species = species
     chilli.heat = heat.to_s
     chilli.shu = @CHILLI_SHU[species.to_sym][variety.to_sym][heat].to_a.sample
     chilli.quantity = rand(1..100)
-    chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY.sample.capitalize}. ")
+    chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY[heat].sample.capitalize}. ")
     chilli.chilli_type = 'seeds'
     chilli.date_available = [Date.today, (Date.today + rand(10..70))].sample
     chilli.price = rand(0.0..20.0).round(2)
 
-    photo = URI.open(@IMAGES[:seeds].sample)
+    photo = URI.open(@IMAGES[:seeds].shuffle.sample)
     filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
     chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
 
     chilli.save
   end
 end
+
+@IMAGES[:seeds].shuffle.sample
 
 # dried chillies
 puts 'Seeding 1 to 3 dried chillies for 3 users'
@@ -118,19 +169,24 @@ users.sample(4).each do |user|
     heat = @CHILLI_SHU[species.to_sym][variety.to_sym].keys[0]
 
     chilli = Chilli.new
-
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
+
+    if rand(0..1.0).round(1) > 0.6
+      chilli.variety = "#{variety.capitalize.gsub('_', ' ')}"
+    else
+      chilli.variety = "#{SPICY[heat].sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
+    end
+
     chilli.species = species
     chilli.heat = heat.to_s
     chilli.shu = @CHILLI_SHU[species.to_sym][variety.to_sym][heat].to_a.sample
     chilli.quantity = rand(1..100)
-    chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY.sample.capitalize}. ")
+    chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY[heat].sample.capitalize}. ")
     chilli.chilli_type = 'dried'
     chilli.date_available = [Date.today, (Date.today + rand(10..70))].sample
     chilli.price = rand(0.0..20.0).round(2)
 
-    photo = URI.open(@IMAGES[:dried].sample)
+    photo = URI.open(@IMAGES[:dried].shuffle.sample)
     filename = "#{chilli.variety.downcase.gsub(' ', '_')}.jpg"
     chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
 
@@ -147,19 +203,24 @@ users.each do |user|
     heat = @CHILLI_SHU[species.to_sym][variety.to_sym].keys[0]
 
     chilli = Chilli.new
-
     chilli.user = user
-    chilli.variety = "#{SPICY.sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
+
+    if rand(0..1.0).round(1) > 0.6
+      chilli.variety = "#{variety.capitalize.gsub('_', ' ')}"
+    else
+      chilli.variety = "#{SPICY[heat].sample.capitalize} #{variety.capitalize.gsub('_', ' ')}"
+    end
+
     chilli.species = species
     chilli.heat = heat.to_s
     chilli.shu = @CHILLI_SHU[species.to_sym][variety.to_sym][heat].to_a.sample
     chilli.quantity = rand(1..100)
-    chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY.sample.capitalize}. ")
+    chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY[heat].sample.capitalize}. ")
     chilli.chilli_type = 'fresh'
     chilli.date_available = [Date.today, (Date.today + rand(10..70))].sample
     chilli.price = rand(0.0..20.0).round(2)
 
-    @IMAGES[:fresh][species.to_sym][variety.to_sym].sample(4).each_with_index do |url, i|
+    @IMAGES[:fresh][species.to_sym][variety.to_sym].shuffle.sample(4).each_with_index do |url, i|
       photo = URI.open(url)
       filename = "#{chilli.variety.downcase.gsub(' ', '_')}_#{i}.jpg"
       chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
@@ -170,10 +231,3 @@ users.each do |user|
 end
 
 puts 'Successfully seeded database!'
-
-#### manual (rails c) fixes ###
-# underscores in name (chilli.variety)
-# Chilli.all.each {|c| c.update(variety: c.variety.gsub('_', ' '))}
-
-# adding sales to users
-# User.all.each {|u| Sale.create(user: u, status: 'basket')}
