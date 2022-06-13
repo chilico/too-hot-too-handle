@@ -1,6 +1,10 @@
 class SalesController < ApplicationController
   before_action :set_basket, only: %i[show update]
 
+  def index
+    @sales = Sale.where(user: current_user)
+  end
+
   def show
   end
 
