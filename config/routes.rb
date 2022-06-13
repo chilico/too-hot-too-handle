@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :sales_chillis, only: %i[create]
   end
   resources :users, only: %i[show]
-  resources :sales, only: %i[show] do
+  resources :sales, only: %i[index show] do
     resources :payments, only: :new
   end
 
