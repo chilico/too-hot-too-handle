@@ -1,12 +1,13 @@
 <div class="section mt-4 py-3 d-flex flex-column justify-content-center align-items-center">
-  <div class="col-12 mt-4">
+  <div class="col-12 mt-4 ms-5">
     <p><%= link_to "< Continue Shopping", chillis_path, class: "styling-for-links" %></p>
   </div>
   <div class="confirm-container">
     <h1 class="text-size-40 mb-4 pb-4">Order Confirmed 🔥</h1>
-    <p class="text-size-32 mb-1">Your chillis are on their way</p>
+    <p class="text-size-32 mb-1">Your chillies are on their way</p>
     <p class="text-size-32 mb-5">Get ready to turn up the heat</p>
-    <p class="text-size-18 mb-0">Order No. 02</p>
-    <p class="text-size-18">Expected Delivery 04th June 2022</p>
+    <p class="text-size-18 mb-0">Order No. <%= current_user.sales.where(status: 'confirmed').last.sale_sku.split('_')[2] %></p>
+    <p class="text-size-18">Expected Delivery:</p>
+    <p class="text-size-24"><%= (@sale.chillis.map(&:date_available).max + 7).strftime('%e %B') %> — <%= (@sale.chillis.map(&:date_available).max + 14).strftime('%e %B, %Y') %></p>
   </div>
 </div>

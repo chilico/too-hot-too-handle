@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_09_121202) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_13_133655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,11 +50,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_121202) do
     t.string "species"
     t.string "chilli_type"
     t.date "date_available"
-    t.float "price"
     t.integer "shu"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "unit"
     t.index ["user_id"], name: "index_chillis_on_user_id"
   end
 
@@ -74,6 +75,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_121202) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.string "sale_sku"
     t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
