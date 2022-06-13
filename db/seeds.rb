@@ -249,9 +249,6 @@ end
 
 puts 'Successfully seeded database!'
 
-
 # manual fixes
-# Chilli.where(chilli_type: 'seeds').each {|i| i.update(unit: 'seed pack')}
-# Chilli.where(unit: 'fruits').each {|i| i.update(unit: 'fruit')}
 # Sale.all.each {|sale| sale.update(price_cents: sale.chillis.all.map(&:price_cents).reduce(:+))}
 # User.all.each {|user| user.sales.each_with_index {|sale, idx| sale.update(sale_sku: "user_sale_#{idx + 1}")}}
