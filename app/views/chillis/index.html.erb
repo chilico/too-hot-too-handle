@@ -39,14 +39,16 @@
     </label>
   </div>
 
-  <%# header showing number of results %>
-  <h1 class="heading-results pt-5" data-index-filter-target="results">
-    <%= @chillis.count %> Results
-  </h1>
-
-  <div class="row justify-content-between">
+  <div class="row justify-content-center">
+    <div>
+      <%# header showing number of results %>
+      <h1 class="heading-results pt-5" data-index-filter-target="results">
+        <%= @chillis.count %> Results
+      </h1>
+    </div>
     <% @chillis.each do |chilli| %>
-        <%= link_to chilli, class: "card-link col-12 col-md-6 col-lg-3 nopadding gy-4", data: {index_filter_target: "chilli", chilli_type: chilli.chilli_type} do %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <%= link_to chilli, class: "card-link nopadding gy-4 m-3", data: {index_filter_target: "chilli", chilli_type: chilli.chilli_type} do %>
           <div class="card-product">
             <%= cl_image_tag chilli.photos.first.key %>
             <div>
@@ -70,11 +72,12 @@
                     <h3><%= "🌶🌶🌶🌶" %></h3>
                   <% end %>
                 </div>
-                <h3>£<%= number_with_precision(chilli.price, precision: 2) %></h2>
+                <h3>£<%= number_with_precision(chilli.price, precision: 2) %></h3>
               </div>
             </div>
           </div>
         <% end %>
+      </div>
     <% end %>
   </div>
 </div>
