@@ -3,7 +3,16 @@ class ChillisController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if params[:query].present?
+    if params[:query].present? && params[:query] == "fresh"
+      @starting_chilli_type = "fresh"
+      @chillis = Chilli.all
+    elsif params[:query].present? && params[:query] == "dried"
+      @starting_chilli_type = "dried"
+      @chillis = Chilli.all
+    elsif params[:query].present? && params[:query] == "seeds"
+      @starting_chilli_type = "seeds"
+      @chillis = Chilli.all
+    elsif params[:query].present?
       @chillis = Chilli.search("#{params[:query]}")
     else
       @chillis = Chilli.all
@@ -15,18 +24,31 @@ class ChillisController < ApplicationController
   end
 
   def new
+    @user = current_user
+    @chilli = Chilli.new
   end
 
   def create
+    @chilli = Chilli.new(chilli_params)
+    @chilli.user = current_user
+    if @chilli.save
+      redirect_to chilli_path(@chilli)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
   end
 
   def update
+    @chilli.update(chilli_params)
+    redirect_to chilli_path(@chilli), status: :see_other
   end
 
   def destroy
+    @chilli.destroy
+    redirect_to user_path(current_user), status: :see_other
   end
 
   private
