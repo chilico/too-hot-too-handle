@@ -55,7 +55,11 @@
             <p><%= @chilli.shu.is_a?(Range) ? "#{@chilli.shu.min}-#{@chilli.shu.max}" : number_with_delimiter(@chilli.shu, :delimiter => ',') %> SHU</p>
           </div>
         </div>
-        <%= link_to 'ADD TO CART', chilli_sales_chillis_path(@chilli), data: {turbo_method: 'POST'}, class: "btn btn-cart" %>
+        <% if user_signed_in? %>
+          <%= link_to 'ADD TO CART', chilli_sales_chillis_path(@chilli), data: {turbo_method: 'POST'}, class: "btn btn-cart" %>
+        <% else %>
+          <%= link_to 'ADD TO CART', new_user_registration_path, class: "btn btn-cart" %>
+        <% end %>
       </div>
 
       <%# detailed chilli info %>
@@ -63,10 +67,18 @@
         <div class="d-flex flex-column align-items-start justify-content-start col-12 col-md-6">
           <div class="d-flex justify-content-between w-100">
             <p>Date Available:<br><%= @chilli.date_available <= Date.today ? 'Now' : @chilli.date_available %></p>
-            <p>Qauntity Available:<br><%= @chilli.quantity %></p>
+            <p>Qauntity Available:<br><%= @chilli.quantity %> <% if ['fruit', 'seed pack'].include?(@chilli.unit) %>
+              <%= @chilli.unit.pluralize %>
+            <% else %>
+              <%= @chilli.unit %>
+            <% end %>
+            </p>
           </div>
           <p class="mt-4"><%= @chilli.description %></p>
-          <h2 class="mt-4">£<%=  number_with_precision(@chilli.price, precision: 2) %></h2>
+          <div class="d-flex align-items-baseline">
+            <h2 class="mt-4 me-2"><%= humanized_money_with_symbol(@chilli.price) %></h2>
+            <p>per <%= @chilli.unit %></p>
+          </div>
         </div>
         <div class="col-12 col-md-6 d-flex flex-column align-items-end">
           <% if @chilli.user.avatar.attached? %>

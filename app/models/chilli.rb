@@ -3,6 +3,7 @@ class Chilli < ApplicationRecord
   has_many :sale_chillis
   has_many :flags
   has_many_attached :photos
+  monetize :price_cents
 
   include AlgoliaSearch
 
