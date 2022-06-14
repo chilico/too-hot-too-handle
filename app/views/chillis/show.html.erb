@@ -90,7 +90,14 @@
               <p><%= "#{@chilli.user.first_name} #{@chilli.user.last_name}  " %><%= image_tag "user.png", class: "avatar-large" %></p>
             <% end %>
           <% end %>
-          <a href="<%#= link_to chat_room %>#" class="btn btn-outline-light rounded-pill">Contact Seller</a>
+          <% if @chilli.user == current_user %>
+            <%= link_to "Edit Listing", edit_chilli_path(@chilli), class: "styling-for-links" %>
+            <%= link_to "Delete Listing",
+                  chilli_path(@chilli.id),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "styling-for-links" %>
+          <% else %>
+            <a href="<%#= link_to chat_room %>#" class="btn btn-outline-light rounded-pill">Contact Seller</a>
+          <% end %>
         </div>
 
       </div>

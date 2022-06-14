@@ -1,0 +1,25 @@
+<%= simple_form_for(@chilli) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :variety, label: false, placeholder: 'Variety', input_html: { class:'chilli-input' }  %>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div class="form-inputs me-3">
+      <%= f.input :species, collection: Chilli::SPECIES, label: false, prompt: 'Species',  input_html: { class:'chilli-input' } %>
+      <%= f.input :chilli_type, collection: Chilli::CHILLI_TYPE, label: false, prompt: 'Chilli Type', input_html: { class:'chilli-input' } %>
+    </div>
+    <div class="form-inputs">
+      <%= f.input :shu, label: false, placeholder: 'SHU', input_html: { class:'chilli-input' } %>
+      <%= f.input :heat, collection: Chilli::HEAT, label: false, prompt: 'Heat', input_html: { class:'chilli-input' } %>
+    </div>
+  </div>
+  <div class="form-inputs">
+      <%= f.input :description, label: false, placeholder: 'Description', input_html: { class:'chilli-input' } %>
+  </div>
+      <%= f.input :price, label: false, placeholder: 'Price', input_html: { class:'chilli-input' } %>
+      <%= f.input :quantity, label: false, placeholder: 'Quantity', input_html: { class:'chilli-input' } %>
+      <%= f.input :date_available, label: false, html5: true, placeholder: 'Date Available', input_html: { class:'chilli-input w-100' } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class:'chilli-input' }, label: false %>
+  <div class="form-actions d-flex justify-content-center mt-4.5 py-3">
+    <%= f.submit "Sell some chillis!", class: "btn btn-orange px-4" %>
+  </div>
+<% end %>
