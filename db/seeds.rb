@@ -149,7 +149,7 @@ users.sample(4).each do |user|
     chilli.description = Faker::Hipster.sentences(number: 4).join(" #{SPICY[heat].sample.capitalize}. ")
     chilli.date_available = [Date.today, (Date.today + rand(10..70))].sample
 
-    chilli.unit = 'seed pack)'
+    chilli.unit = 'seed pack'
     chilli.quantity = rand(1..100)
     chilli.price_cents = rand(80..500)
 
