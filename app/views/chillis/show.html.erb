@@ -56,7 +56,36 @@
           </div>
         </div>
         <% if user_signed_in? %>
-          <%= link_to 'ADD TO CART', chilli_sales_chillis_path(@chilli), data: {turbo_method: 'POST'}, class: "btn btn-cart" %>
+          <%# <%= link_to 'ADD TO CART', chilli_sales_chillis_path(@chilli), data: {turbo_method: 'POST'}, class: "btn btn-cart" %>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-cart" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            ADD TO CART
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Please choose a quantity (<%= @chilli.unit %>)</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-for">
+                  <%= simple_form_for(@chilli, url: chilli_sales_chillis_path(@chilli), html: { method: :post }, data: { turbo: :false }) do |f| %>
+                    <div class="modal-body">
+                      <%= f.input :quantity, input_html: { value: '1', min: '1', max: @chilli.quantity, step: 'any' } %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary cart-secondary" data-bs-dismiss="modal">Close</button>
+                      <%= f.button :submit, "Add to cart", class: "btn btn-cart" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <% else %>
           <%= link_to 'ADD TO CART', new_user_registration_path, class: "btn btn-cart" %>
         <% end %>
