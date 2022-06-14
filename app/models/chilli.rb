@@ -1,4 +1,5 @@
 class Chilli < ApplicationRecord
+  include AlgoliaSearch
   belongs_to :user
   has_many :sale_chillis
   has_many :flags
@@ -15,12 +16,10 @@ class Chilli < ApplicationRecord
   monetize :price_cents
 
 
-  include AlgoliaSearch
-
   algoliasearch do
     # all attributes will be sent
-    attributes :variety, :chilli_type, :species, :description, :heat
+    attributes :variety, :chilli_type, :species, :heat, :description
 
-    searchableAttributes ['chilli_type', 'species', 'heat', 'variety']
+    searchableAttributes ['unordered(chilli_type)', 'unordered(heat)', 'unordered(species)', 'unordered(variety)']
   end
 end
