@@ -13,17 +13,30 @@
       <div class="col-8">
         <h2>Your Basket</h2>
         <div class="basket-container gradient-background d-flex flex-column align-items-center pt-3">
-          <% @sale.chillis.all.each do |chilli| %>
-            <div class="w-75">
-              <%= link_to chilli, class: "card-link col-8 col-xl-3 nopadding m-3" do %>
-                <div class="basket-card-product d-flex justify-content-between align-items-start">
-                  <%= cl_image_tag chilli.photos.first.key %>
-                  <div class="d-flex justify-content-between align-items-start w-100 ps-3">
-                    <h2><%= chilli.variety %></h2>
-                    <h2>£<%= number_with_precision(chilli.price, precision: 2) %></h2>
-                  </div>
+          <% @sale.sales_chillis.all.each do |sales_chilli| %>
+
+            <div class="basket-card-product nopadding m-3 d-flex justify-content-between align-items-start w-75">
+              <%= cl_image_tag sales_chilli.chilli.photos.first.key %>
+
+              <div class="w-100">
+
+                <div class="d-flex justify-content-between w-100 ps-3">
+                  <h2><%= sales_chilli.chilli.variety %></h2>
+                  <h2><%= humanized_money_with_symbol(sales_chilli.price) %></h2>
                 </div>
-              <% end %>
+
+                <div class="d-flex align-items-center justify-content-between w-100 ps-3">
+                  <p>Quantity: <%= sales_chilli.quantity %><% if ['fruit', 'seed pack'].include?(sales_chilli.chilli.unit) %>
+                    <%= sales_chilli.quantity > 1 ? sales_chilli.chilli.unit.pluralize : sales_chilli.chilli.unit%>
+                  <% else %>
+                    <%= sales_chilli.chilli.unit %>
+                  <% end %>
+                  </p>
+                  <%= link_to "delete", remove_item_path(sales_chilli), data: {turbo_method: 'DELETE'}, class: "styling-for-links-dark"  %>
+                </div>
+
+              </div>
+
             </div>
           <% end %>
           <% if @sale.chillis.all.count > 0 %>

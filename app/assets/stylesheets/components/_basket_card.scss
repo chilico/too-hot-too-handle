@@ -18,17 +18,14 @@
 
 .basket-card-product {
   overflow: hidden;
-  height: 100px;
-  // display: flex;
-  // justify-content: flex-start;
-  // align-items: center;
+  height: 120px;
   position: relative;
   background-size: cover;
   background-position: center;
 
   img {
+    width: 120px;
     height: 100%;
-    width: 100px;
     object-fit: cover;
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;

@@ -11,3 +11,18 @@
   color: #393c3f;
   font-weight: bolder;
 }
+
+
+.styling-for-links-dark {
+  color: #585c61;
+
+  &:hover{
+    color: #393c3f;
+    cursor:pointer;
+  }
+}
+
+.styling-for-links-dark.active {
+  color: $lighter_grey;
+  font-weight: bolder;
+}

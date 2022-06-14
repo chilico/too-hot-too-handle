@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[show]
   resources :sales, only: %i[index show] do
-    resources :payments, only: :new
+    resources :payments, only: %i[new]
   end
+  resources :sales_chillis, only: %i[update]
+  delete '/sales_chillis/:id', to: 'sales_chillis#destroy', as: :remove_item
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
