@@ -1,0 +1,13 @@
+<%= simple_form_for [chilli, review] do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title, label: false, placeholder: 'Review Title', input_html: { class:'chilli-input' }  %>
+    <%= f.input :content, label: false, placeholder: 'Tell us your thoughts', input_html: { class:'chilli-input' } %>
+    <div class="d-flex mt-4">
+      <%= f.input :rating, as: :radio_buttons, collection: Review::RATING, item_wrapper_class: "d-inline-block mx-3 my-1",
+      input_html: {  style: "width: 1em; height: 1rem; accent-color: orange; margin: 3px;" } %>
+    </div>
+  </div>
+  <div class="form-actions d-flex justify-content-center mt-4.5 py-3">
+    <%= f.submit "Leave Review", class: "btn btn-orange px-4" %>
+  </div>
+<% end %>

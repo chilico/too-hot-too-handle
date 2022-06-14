@@ -1,7 +1,18 @@
 class ReviewsController < ApplicationController
-  before_action :set_chilli, only: %i[create]
+  before_action :set_chilli, only: %i[new create]
+
+  def new
+    @review = Review.new
+  end
 
   def create
+    @review = Review.new(review_params)
+    @review.chilli = @chilli
+    if @review.save
+      redirect_to sales_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
