@@ -11,22 +11,6 @@ SPECIES = {
   pubescens: %w[manzano rocoto]
 }
 
-# SPICY = %w[
-#   spicy
-#   piquant
-#   tangy
-#   peppery
-#   hot
-#   zesty
-#   sharp
-#   pungent
-#   sapid
-#   atomic
-#   nuclear
-#   firey
-#   blazing
-# ]
-
 SPICY = {
   none: %w[
     piquant
@@ -34,7 +18,6 @@ SPICY = {
     peppery
     zesty
     pungent
-    sapid
   ],
   mild: %w[
     piquant
@@ -51,8 +34,6 @@ SPICY = {
     hot
     zesty
     sharp
-    pungent
-    sapid
   ],
   hot: %w[
     spicy
@@ -63,7 +44,6 @@ SPICY = {
     blazing
   ],
   extreme: %w[
-    sapid
     atomic
     nuclear
     firey
@@ -71,7 +51,7 @@ SPICY = {
   ]
 }
 
-# users
+users
 puts 'Creating Chris, Maryam and Estef users ...'
 chris = User.create(
   first_name: 'Chris',
@@ -160,8 +140,6 @@ users.sample(4).each do |user|
     chilli.save
   end
 end
-
-@IMAGES[:seeds].shuffle.sample
 
 # dried chillies
 puts 'Seeding 1 to 3 dried chillies for 3 users'

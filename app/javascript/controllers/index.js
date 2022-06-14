@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import IndexFilterController from "./index_filter_controller.js"
 application.register("index-filter", IndexFilterController)
+
+import MapController from "./map_controller.js"
+application.register("map", MapController)
