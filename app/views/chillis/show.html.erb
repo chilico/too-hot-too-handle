@@ -128,8 +128,18 @@
             <a href="<%#= link_to chat_room %>#" class="btn btn-outline-light rounded-pill">Contact Seller</a>
           <% end %>
         </div>
-
       </div>
     </div>
+
+    <div class="row my-4">
+      <div class="col-12">
+        <div style="width: 100%; height: 500px; border-radius:20px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
