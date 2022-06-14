@@ -1,15 +1,16 @@
-<div height="80px" style="background: $background-blue"></div>
-<div class="blue-section my-5 py-3">
-  <%= link_to "< Continue Shopping", chillis_path, class: 'styling-for-links ps-3' %>
-  <div class="row">
-    <div class="d-md-flex flex-row-reverse justify-content-center align-items-center text-center my-3 mx-auto">
-      <div class="px-5 py-3 col-lg-4 col-sm-12 orange-section">
-        <h1 class="h1-form">Need to edit your listing?</h1>
-        <span class="h2-form text-break">Let us know what you would like to change.</span>
-      </div>
-      <div class="white-section py-3 col-lg-4 col-sm-12">
-        <div class="px-5 py-5">
-          <%= render 'form', chilli: @chilli %>
+<div style="min-height: 80vh; margin-bottom:80px;">
+  <div class="blue-section my-5 py-3">
+    <%= link_to "< Continue Shopping", chillis_path, class: 'styling-for-links ps-3' %>
+    <div class="row">
+      <div class="d-md-flex flex-row-reverse justify-content-center align-items-center text-center my-0 mx-auto">
+        <div class="px-5 py-3 col-md-4 col-sm-12 orange-section d-flex flex-column justify-content-center align-item-center">
+          <h1 class="h1-form">Need to edit your listing?</h1>
+          <span class="h2-form text-break">Let us know what you would like to change.</span>
+        </div>
+        <div class="white-section py-3 col-md-4 col-sm-12">
+          <div class="px-5 py-5">
+            <%= render 'form', chilli: @chilli %>
+          </div>
         </div>
       </div>
     </div>

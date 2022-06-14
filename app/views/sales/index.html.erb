@@ -11,28 +11,37 @@
           </h2>
           <div id="flush-collapse<%= sale.id %>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%= sale.id %>" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body d-flex justify-content-center">
-              <div class="basket-container gradient-background d-flex flex-column align-items-center pt-3 w-50">
+              <div class="container basket-container gradient-background d-flex flex-column align-items-center pt-3 w-75">
                 <% sale.chillis.all.each do |chilli| %>
-                  <div class="w-75">
-                    <%= link_to chilli, class: "card-link col-8 col-xl-3 nopadding m-3" do %>
+                  <div class="col-8 col-xl-3 w-75 nopadding m-3">
+                    <%# <%= link_to chilli, class: "card-link col-8 col-xl-3 nopadding m-3" do %>
                       <div class="basket-card-product d-flex justify-content-between align-items-start">
                         <%= cl_image_tag chilli.photos.first.key %>
-                        <div class="d-flex justify-content-between align-items-start w-100 ps-3">
-                          <h2><%= chilli.variety %></h2>
-                          <h2>£<%= number_with_precision(chilli.price, precision: 2) %></h2>
+                        <div class="d-flex flex-grow-1 flex-column align-self-stretch justify-content-between">
+                          <div class="d-flex justify-content-between ps-3">
+                            <h2><%= link_to chilli.variety, chilli, class: "text-decoration-none" %></h2>
+                            <h2><%= humanized_money_with_symbol(chilli.price) %></h2>
+                          </div>
+                          <div class="text-end">
+                            <%= link_to "Leave review", new_chilli_review_path(chilli), class: "" %>
+                          </div>
                         </div>
                       </div>
-                    <% end %>
+                    <%# <% end %>
                   </div>
                 <% end %>
                 <hr class="hr-black">
-                <div class="d-flex justify-content-between w-75">
+                <div class="d-flex justify-content-between w-75 pb-2">
                   <p>Shipping</p>
                   <p><%# TO DO %>£3.00</p>
                 </div>
-                <div class="d-flex justify-content-between w-75 pb-3">
-                  <h2>TOTAL</h2>
-                  <h2>£<%= number_with_precision(sale.chillis.all.map(&:price).reduce(:+) + 3, precision: 2) %></h2>
+                <div class="d-flex justify-content-between w-75">
+                  <h2>Total paid</h2>
+                  <h2><%= humanized_money_with_symbol((sale.price_cents + 3) / 100.0) %></h2>
+                </div>
+                <div class="d-flex justify-content-between w-75 pb-4">
+                  <p>Ordered at</p>
+                  <p><%= sale.created_at %></p>
                 </div>
               </div>
             </div>
