@@ -1,0 +1,45 @@
+.main-div {
+  position: relative;
+}
+
+.blue-section {
+  background-color: $lighter-banner-blue;
+  height: 50vh;
+}
+
+.orange-section {
+  // width: 70vw;
+  // height: 60vh;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(251, 194, 142, 0.95) 0%, rgba(219, 126, 67, 0.95) 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.top-element {
+  position: absolute;
+  top:20px;
+}
+
+.white-section {
+  height: 100%;
+  // width: 50%;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px 0px 0px 20px;
+}
+
+.h1-form {
+  color: white;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.h2-form {
+  color: #494949;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 32px;
+}

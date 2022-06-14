@@ -19,21 +19,21 @@
   </div>
 </div>
 
-<div class="container pb-5" data-controller="index-filter" data-index-filter-chilli-count-value="<%= @chillis.count %>">
+<div class="container pb-5" data-controller="index-filter" data-index-filter-chilli-count-value="<%= @chillis.count %>" data-index-filter-chilli-type-value="<%= @starting_chilli_type %>">
   <%# TODO: add search bar to update result %>
   <div class="d-flex justify-content-around p-5" >
     <%# <a class="btn btn-filter">Dried</a>
     <a class="btn btn-filter">Fresh</a>
     <a class="btn btn-filter">Seeds</a> %>
-    <label class="btn btn-filter inactive" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="dried">
+    <label class="btn btn-filter <%= @starting_chilli_type == "dried" ? "active" : "inactive" %>" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="dried">
       Dried
       <input type="checkbox" class="checkbox">
     </label>
-    <label class="btn btn-filter inactive" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="fresh">
+    <label class="btn btn-filter <%= @starting_chilli_type == "fresh" ? "active" : "inactive" %>" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="fresh">
       Fresh
       <input type="checkbox" class="checkbox">
     </label>
-    <label class="btn btn-filter inactive" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="seeds">
+    <label class="btn btn-filter <%= @starting_chilli_type == "seeds" ? "active" : "inactive" %>" data-action="click->index-filter#filterResults" data-action="click->index-filter#countResults" data-index-filter-target="filter" data-chilli-type="seeds">
       Seeds
       <input type="checkbox" class="checkbox">
     </label>
