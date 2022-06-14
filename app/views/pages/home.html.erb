@@ -31,14 +31,14 @@
 </div>
 <div class="section py-2 my-4">
   <h3 class="heading text-size-32 py-3">...by heat level</h3>
-  <div class="container">
+  <div class="container" data-controller="heat">
     <div class="row">
       <div class="col-12">
         <%= render "heat_level" %>
       </div>
     </div>
     <div class="row">
-      <span class="heading text-size-24 py-2">No heat</span>
+      <span class="heading text-size-24 py-2" data-heat-target="text">No heat</span>
     </div>
   </div>
 </div>
