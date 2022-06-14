@@ -3,6 +3,7 @@ class ChillisController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @starting_chilli_type = ''
     if params[:query].present? && params[:query] == "fresh"
       @starting_chilli_type = "fresh"
       @chillis = Chilli.all
