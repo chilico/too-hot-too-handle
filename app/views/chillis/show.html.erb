@@ -101,6 +101,23 @@
         </div>
 
       </div>
+
+      <%# review content %>
+      <div class="row my-4">
+      <div class="col-12 col-md-6 my-2">
+        <h3>Reviews</h3>
+        <% @chilli.reviews.each do |review| %>
+          <div class="py-3">
+            <div class="d-flex justify-content-between my-2">
+              <div><strong><%= review.title %></strong></div>
+              <div class="me-2"><%= review.rating %> stars</div>
+            </div>
+            <div>
+              <p><%= review.content %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
