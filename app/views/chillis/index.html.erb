@@ -47,8 +47,8 @@
       </h1>
     </div>
     <% @chillis.each do |chilli| %>
-      <div class="col-12 col-md-6 col-lg-4">
-        <%= link_to chilli, class: "card-link nopadding gy-4 m-3", data: {index_filter_target: "chilli", chilli_type: chilli.chilli_type} do %>
+      <div class= "col-12 col-md-6 col-lg-4">
+        <%= link_to chilli, class: "card-link nopadding m-3", data: {index_filter_target: "chilli", chilli_type: chilli.chilli_type} do %>
           <div class="card-product">
             <%= cl_image_tag chilli.photos.first.key %>
             <div>
