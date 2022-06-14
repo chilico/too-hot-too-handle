@@ -50,7 +50,7 @@ export default class extends Controller {
     if (this.filterTargets.every(this.#isInactive)) {
       console.log("This is true")
       this.chilliTargets.forEach(chilli => {
-          chilli.classList.remove("d-none")
+          chilli.parentElement.classList.remove("d-none")
         })
     } else {
       this.filterTargets.forEach(filter => {
@@ -59,13 +59,13 @@ export default class extends Controller {
           this.chilliTargets.forEach(chilli => {
             console.log(chilli)
             if(chilli.dataset.chilliType === filter.dataset.chilliType){
-              chilli.classList.add("d-none")
+              chilli.parentElement.classList.add("d-none")
             }
             })
         } else {
           this.chilliTargets.forEach(chilli => {
             if(chilli.dataset.chilliType === filter.dataset.chilliType){
-            chilli.classList.remove("d-none")
+            chilli.parentElement.classList.remove("d-none")
             }
           })
         }
