@@ -18,4 +18,8 @@ Rails.application.routes.draw do
 
   patch '/sales/:id', to: 'sales#update', as: :update_basket
   get '/sales/:id/confirm', to: 'sales#confirm', as: :order_confirmation
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
