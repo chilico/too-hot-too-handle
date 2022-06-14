@@ -3,4 +3,6 @@ class Sale < ApplicationRecord
 
   has_many :sales_chillis
   has_many :chillis, through: :sales_chillis
+
+  monetize :price_cents
 end
