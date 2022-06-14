@@ -1,16 +1,16 @@
-<div class="main-div">
+<div style="min-height: 80vh; margin-bottom:80px;">
   <div class="blue-section my-5 py-3">
     <%= link_to "< Continue Shopping", chillis_path, class: 'styling-for-links ps-3' %>
-  </div>
-  <div class="row top-element">
-    <div class="d-md-flex justify-content-center align-items-center text-center my-3 mx-auto">
-      <div class="px-5 py-3 col-md-4 col-sm-12 orange-section" style="border-radius: 20px 0px 0px 20px;">
-        <h1 class="h1-form">Review your chilli</h1>
-        <span class="h2-form text-break">Help us improve the chilli market with your feedback.</span>
-      </div>
-      <div class="white-section py-3 col-md-4 col-sm-12" style="border-radius: 0px 20px 20px 0px;">
-        <div class="px-5 py-5">
-          <%= render 'new_review_form', chilli: @chilli, review: @review %>
+    <div class="row py-5">
+      <div class="d-md-flex justify-content-center align-items-center text-center my-0 mx-auto">
+        <div class="px-4 py-3 col-md-4 col-sm-12 orange-section d-flex flex-column justify-content-center align-item-center" style="border-radius: 20px 0px 0px 20px;">
+          <h1 class="h1-form">Review your chilli</h1>
+          <span class="h2-form text-break">Help us improve the chilli market with your feedback.</span>
+        </div>
+        <div class="white-section py-3 col-md-4 col-sm-12" style="border-radius: 0px 20px 20px 0px;">
+          <div class="px-4 py-5">
+            <%= render 'new_review_form', chilli: @chilli, review: @review %>
+          </div>
         </div>
       </div>
     </div>

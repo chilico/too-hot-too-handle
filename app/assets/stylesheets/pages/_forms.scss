@@ -4,7 +4,8 @@
 
 .blue-section {
   background-color: $lighter-banner-blue;
-  height: 50vh;
+  max-height: 400px;
+  overflow: visible;
 }
 
 .orange-section {
