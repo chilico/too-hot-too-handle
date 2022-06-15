@@ -14,6 +14,11 @@ class User < ApplicationRecord
   has_many :chillis, dependent: :destroy
   has_many :sales, dependent: :destroy
 
+  has_many :chatrooms_as_seller, class_name: "Chatroom", foreign_key: :seller_id, dependent: :destroy
+  has_many :chatrooms_as_buyer, class_name: "Chatroom", foreign_key: :buyer_id, dependent: :destroy
+
+  has_many :messages, dependent: :destroy
+
   private
 
   def create_sale

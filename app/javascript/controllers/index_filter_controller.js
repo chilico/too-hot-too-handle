@@ -32,9 +32,6 @@ export default class extends Controller {
   #totalResults() {
     console.log("hello from count results")
     let result = 0;
-
-    console.log("rtghtffbfb")
-
     this.chilliTargets.forEach(chilli => {
       console.log(chilli.parentElement)
       if(chilli.parentElement.className.includes("d-none")){

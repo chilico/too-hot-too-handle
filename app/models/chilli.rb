@@ -15,7 +15,6 @@ class Chilli < ApplicationRecord
 
   monetize :price_cents
 
-
   algoliasearch do
     # all attributes will be sent
     attributes :variety, :chilli_type, :species, :heat, :description
