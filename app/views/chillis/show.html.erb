@@ -74,7 +74,7 @@
                 <div class="form-for">
                   <%= simple_form_for(@chilli, url: chilli_sales_chillis_path(@chilli), html: { method: :post }, data: { turbo: :false }) do |f| %>
                     <div class="modal-body">
-                      <%= f.input :quantity, input_html: { value: '1', min: '1', max: @chilli.quantity, step: 'any' } %>
+                      <%= f.input :quantity, input_html: { value: '1', min: '1', max: @chilli.quantity, step: 'any', class: 'chilli-input' } %>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary cart-secondary" data-bs-dismiss="modal">Close</button>
