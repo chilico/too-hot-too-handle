@@ -5,6 +5,10 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.text-size-200 {
+  font-size: 200px;
+}
+
 .text-size-40 {
   font-size: 40px;
 }
@@ -27,4 +31,12 @@
 
 .section {
   background-color: $light_blue;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-light {
+  font-weight: lighter;
 }
