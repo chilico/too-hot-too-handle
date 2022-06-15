@@ -125,8 +125,7 @@
                   chilli_path(@chilli.id),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "styling-for-links" %>
           <% else %>
-            <%= button_to "Contact Seller", chatrooms_path(chatroom: {name: @chilli.variety, seller_id: @chilli.user_id}), method: :post %>
-            <a href="<%#= link_to chat_room %>#" class="btn btn-outline-light rounded-pill">Contact Seller</a>
+            <%= button_to "Contact Seller", chatrooms_path(chatroom: {name: @chilli.variety, seller_id: @chilli.user_id}), class: "btn btn-outline-light rounded-pill m-2", method: :post %>
           <% end %>
         </div>
       </div>
