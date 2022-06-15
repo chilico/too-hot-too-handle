@@ -8,7 +8,7 @@
 
 @CHILLI_SHU = {
   annuum: {
-    bell: { none: (0..10) },
+    bell: { none: (0..0) },
     cayenne: { hot: (30_000..50_000) },
     jalapeno: { medium: (2_000..8_000) },
     poblano: { mild: (1_000..1_500) },

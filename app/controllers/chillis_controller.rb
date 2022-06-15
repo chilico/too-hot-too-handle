@@ -18,6 +18,15 @@ class ChillisController < ApplicationController
     else
       @chillis = Chilli.all
     end
+
+    @markers = @chillis.map do |chilli|
+      {
+        lat: chilli.user.latitude,
+        lng: chilli.user.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {chilli: chilli}),
+        image_url: helpers.asset_url("chilli-marker.png")
+      }
+    end
   end
 
   def show
