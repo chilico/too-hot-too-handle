@@ -10,3 +10,17 @@
     text-decoration: none;
   }
 }
+
+.card-link-light {
+  font-family: $body-font;
+  color: $lighter_grey;
+  text-decoration: none;
+  box-sizing: content-box;
+
+  &:hover{
+    font-family: $body-font;
+    color: $light-gray;
+    text-decoration: none;
+  }
+
+}
