@@ -1,20 +1,32 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @sale.chillis.first.photos.first, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of Order No. <%= current_user.sales.where(status: 'basket').first.sale_sku.split('_')[2] %> for <strong><%= humanized_money_with_symbol(@sale.price) %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @sale.checkout_session_id %>'
-          });
-        });
-      </script>
+<div style="background-color: #0F4C5C;">
+  <div class="container">
+    <div class="row py-4 justify-content-center align-items-center">
+      <div class="col-md-3"><%= image_tag @sale.chillis.first.photos.first, width: '100%' %></div>
+      <div class="col-md-4 d-flex flex-column align-items-start" style="height: 100%;">
+        <div class="mb-auto">
+          <h1 style=>One step closer to your chillis!</h1>
+        </div>
+        <br>
+        <div>
+          <h4 style="color:white;">Checkout Summary</h5>
+          <p class="pb-0" style="color:white;">Purchase of Order No. <%= current_user.sales.where(status: 'basket').first.sale_sku.split('_')[2] %> <br>
+          Order total: <strong><%= humanized_money_with_symbol(@sale.price) %></strong></p>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+          <button id="pay" class="btn btn-primary">Pay Now</button>
+          <script src="https://js.stripe.com/v3/"></script>
+          <script>
+            const paymentButton = document.getElementById('pay');
+            paymentButton.addEventListener('click', () => {
+              const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+              stripe.redirectToCheckout({
+                sessionId: '<%= @sale.checkout_session_id %>'
+              });
+            });
+          </script>
+        </div>
+      </div>
     </div>
   </div>
 </div>
