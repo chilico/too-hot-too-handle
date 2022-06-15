@@ -96,7 +96,7 @@
         <div class="d-flex flex-column align-items-start justify-content-start col-12 col-md-6">
           <div class="d-flex justify-content-between w-100">
             <p>Date Available:<br><%= @chilli.date_available <= Date.today ? 'Now' : @chilli.date_available %></p>
-            <p>Qauntity Available:<br><%= @chilli.quantity %> <% if ['fruit', 'seed pack'].include?(@chilli.unit) %>
+            <p>Quantity Available:<br><%= @chilli.quantity %> <% if ['fruit', 'seed pack'].include?(@chilli.unit) %>
               <%= @chilli.unit.pluralize %>
             <% else %>
               <%= @chilli.unit %>
