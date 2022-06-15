@@ -15,3 +15,6 @@ application.register("index-filter", IndexFilterController)
 
 import MapController from "./map_controller.js"
 application.register("map", MapController)
+
+import MapManyController from "./map_many_controller.js"
+application.register("map-many", MapManyController)
