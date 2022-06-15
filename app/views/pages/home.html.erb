@@ -1,23 +1,25 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
-  <div class="container">
-    <h1>Spice up your life</h1>
-  </div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <%= form_tag chillis_path, method: :get, class: "m-4 col-6" do %>
-        <div class="input-group custom-search">
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control rounded-pill custom-input",
-          placeholder: "Search Chillies"
-        %>
-        <%= submit_tag "Search", class: "rounded-pill custom-btn" %>
-        </div>
-      <% end %>
+<div class="top-panel">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
+    <div class="container">
+      <h1>Spice up your life</h1>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <%= form_tag chillis_path, method: :get, class: "m-4 col-6" do %>
+          <div class="input-group custom-search">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control rounded-pill custom-input",
+            placeholder: "Search Chillies"
+          %>
+          <%= submit_tag "Search", class: "rounded-pill custom-btn" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
+  <h2 class="heading text-light text-size-34 py-4 mt-3">Or explore chillies below</h2>
 </div>
-<h2 class="heading text-light text-size-34 py-4 mt-3">Or explore chillies below</h2>
 <div class="section py-2 my-4">
   <h3 class="heading text-light text-size-32 py-3">By type</h3>
   <div class="container py-2">
@@ -32,7 +34,7 @@
     </div>
   </div>
 </div>
-<div class="section py-2 my-4">
+<div class="py-2 my-4">
   <h3 class="heading text-light text-size-32 py-3">By heat level</h3>
   <div class="container" data-controller="heat">
     <div class="">
@@ -49,7 +51,7 @@
     </div>
   </div>
 </div>
-<div class="section py-2 my-4">
+<div class="section py-2 mt-4">
   <h3 class="heading text-light text-size-32 py-3">By species</h3>
   <div class="container d-flex flex-column align-items-center text-center py-2">
     <div class="row d-flex flex-column text-light flex-fill col-10 align-items-center pt-3">
