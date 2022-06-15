@@ -6,7 +6,7 @@ class Chilli < ApplicationRecord
   has_many :reviews
   has_many_attached :photos
 
-  SPECIES = ["annum", "baccatum", "chinense", "frutescens", "pubescens"]
+  SPECIES = ["annuum", "baccatum", "chinense", "frutescens", "pubescens"]
   CHILLI_TYPE = ["dried", "seeds", "fresh"]
   HEAT = ["none", "mild", "medium", "hot", "extreme"]
   validates :species, inclusion: { in: SPECIES }

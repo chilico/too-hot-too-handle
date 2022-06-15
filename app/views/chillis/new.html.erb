@@ -1,17 +1,16 @@
-<%# <div height="80px" style="background: $background-blue"></div> %>
-<div class="main-div">
+<div style="min-height: 80vh; margin-bottom:80px;">
   <div class="blue-section my-5 py-3">
     <%= link_to "< Continue Shopping", chillis_path, class: 'styling-for-links ps-3' %>
-  </div>
-  <div class="row top-element">
-    <div class="d-md-flex flex-row-reverse justify-content-center align-items-center text-center my-3 mx-auto">
-      <div class="px-5 py-3 col-md-4 col-sm-12 orange-section">
-        <h1 class="h1-form">Sell your chillis!</h1>
-        <span class="h2-form text-break">Got some chillis to sell? List them easily with our sign up form.</span>
-      </div>
-      <div class="white-section py-3 col-md-4 col-sm-12">
-        <div class="px-5 py-5">
-          <%= render 'form', chilli: @chilli %>
+    <div class="row">
+      <div class="d-md-flex flex-row-reverse justify-content-center align-items-center text-center my-0 mx-auto">
+        <div class="px-5 py-3 col-md-4 col-sm-12 orange-section d-flex flex-column justify-content-center align-item-center">
+          <h1 class="h1-form">Sell your chillis!</h1>
+          <span class="h2-form text-break">Got some chillis to sell? List them easily with our sign up form.</span>
+        </div>
+        <div class="white-section py-3 col-md-4 col-sm-12">
+          <div class="px-5 py-5">
+            <%= render 'form', chilli: @chilli %>
+          </div>
         </div>
       </div>
     </div>
