@@ -29,14 +29,10 @@ class SalesController < ApplicationController
 
     @sale.update(checkout_session_id: session.id)
     redirect_to new_sale_payment_path(@sale), status: :see_other
-
-    # @sale.update(status: 'confirmed')
-    # redirect_to order_confirmation_path(@sale), status: :see_other
   end
 
   def confirm
-    sales = Sale.where(user: current_user)
-    @sale = sales.where(status: 'confirmed').last
+    @sale = Sale.find(params[:id])
   end
 
   private

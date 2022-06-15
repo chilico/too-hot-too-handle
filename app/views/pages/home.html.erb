@@ -9,31 +9,38 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control rounded-pill custom-input",
-          placeholder: "Search Chilli"
+          placeholder: "Search Chillies"
         %>
         <%= submit_tag "Search", class: "rounded-pill custom-btn" %>
-        <i class="fa fa-search pt-5 text-light"></i>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-<h2 class="heading text-size-36 py-4">Or click to explore our chillis...</h2>
+<h2 class="heading text-light text-size-34 py-4 mt-3">Or explore chillies below</h2>
 <div class="section py-2 my-4">
-  <h3 class="heading text-size-32 py-3">...by type</h3>
+  <h3 class="heading text-light text-size-32 py-3">By type</h3>
   <div class="container py-2">
     <div class="row d-flex justify-content-center">
       <%= render "chillitype_card", image_path: "homepage/fresh-chilli.jpg", title: "Fresh" %>
       <%= render "chillitype_card", image_path: "homepage/seed-chilli.jpg", title: "Seeds" %>
       <%= render "chillitype_card", image_path: "homepage/dried-chilli.jpg", title: "Dried" %>
+      <div class="d-flex flex-column flex-grow-1 col-12 col-md-2 justify-content-center align-items-center">
+        <h2>Did you know can buy chillies three ways?</h2>
+        <p>Are you looking for fresh chillies to make a zesty salsa, maybe dried chillies for a weekend recipe, or perhaps want to grow a rare veriety? We have you covered! </p>
+      </div>
     </div>
   </div>
 </div>
 <div class="section py-2 my-4">
-  <h3 class="heading text-size-32 py-3">...by heat level</h3>
+  <h3 class="heading text-light text-size-32 py-3">By heat level</h3>
   <div class="container" data-controller="heat">
-    <div class="row">
-      <div class="col-12">
+    <div class="">
+      <div class="row col-12 d-flex justify-content-center align-items-center">
+        <div class="d-flex flex-column text-light flex-fill col-12 col-md-2 align-items-center pt-3">
+          <h2>Different 🔥 levels to meet everyone's needs!</h2>
+          <p>Whether you're addicted to heat or prefer to steer clear, we have the chillis for each. Explore Scoville Heat Units (SHU) with us.</p>
+        </div>
         <%= render "heat_level" %>
       </div>
     </div>
@@ -43,14 +50,16 @@
   </div>
 </div>
 <div class="section py-2 my-4">
-  <h3 class="heading text-size-32 py-3">...by species</h3>
-  <div class="container py-2">
+  <h3 class="heading text-light text-size-32 py-3">By species</h3>
+  <div class="container d-flex flex-column align-items-center text-center py-2">
+    <div class="row d-flex flex-column text-light flex-fill col-10 align-items-center pt-3">
+      <h2>The five domesticated species of chilli</h2>
+      <p>Did you know all the chillies of the world that people farm and eat belong to only five species? You might already be familiar with <em>Capsicum annuum</em>, which many popular chillis belong to - including the jalapeno, serrano, and even bell peppers! Or perhaps you'd like to try a rarer South American species, such as <em>C. baccatum</em>, or <em>C. frutescens</em>? And of course, if you're looking to turn up the 🔥, search for firery <em>C. chinense</em> - the hottest of all the chillies!</p>
+    </div>
     <div class="row d-flex justify-content-center">
       <%= render "species_card", image_path: "species-icons/capsicum-annuum.png", title: "annuum", search:"Annuum" %>
       <%= render "species_card", image_path: "species-icons/capsicum-baccatum.png", title: "baccatum", search:"Baccatum" %>
       <%= render "species_card", image_path: "species-icons/capsicum-chinense.png", title: "chinense", search:"Chinense" %>
-    </div>
-    <div class="row d-flex justify-content-center">
       <%= render "species_card", image_path: "species-icons/capsicum-frutescens.png", title: "frutescens", search:"Frutescens" %>
       <%= render "species_card", image_path: "species-icons/capsicum-pubescens.png", title: "pubescens", search:"Pubescens" %>
     </div>

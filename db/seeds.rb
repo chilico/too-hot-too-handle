@@ -51,7 +51,6 @@ SPICY = {
   ]
 }
 
-users
 puts 'Creating Chris, Maryam and Estef users ...'
 chris = User.create(
   first_name: 'Chris',
