@@ -1,4 +1,7 @@
 class Sale < ApplicationRecord
+  STANDARD = 300
+  EXPRESS = 800
+
   belongs_to :user
 
   has_many :sales_chillis, dependent: :destroy

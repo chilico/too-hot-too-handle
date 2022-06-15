@@ -1,7 +1,4 @@
 <div class="section mt-4 py-3 d-flex flex-column justify-content-center align-items-center">
-  <div class="col-12 mt-4 ms-5">
-    <p><%= link_to "< Continue Shopping", chillis_path, class: "styling-for-links" %></p>
-  </div>
   <div class="confirm-container">
     <h1 class="text-size-40 mb-4 pb-4">Order Confirmed 🔥</h1>
     <p class="text-size-32 mb-1">Your chillies are on their way</p>
@@ -11,3 +8,6 @@
     <p class="text-size-24"><%= (@sale.chillis.map(&:date_available).max + 7).strftime('%e %B') %> — <%= (@sale.chillis.map(&:date_available).max + 14).strftime('%e %B, %Y') %></p>
   </div>
 </div>
+<div class="container d-flex justify-content-center col-12 mt-5">
+    <p><%= link_to "< Continue Shopping", chillis_path, class: "styling-for-links" %></p>
+  </div>
