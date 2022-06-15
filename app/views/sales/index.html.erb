@@ -19,11 +19,11 @@
                         <%= cl_image_tag chilli.photos.first.key %>
                         <div class="d-flex flex-grow-1 flex-column align-self-stretch justify-content-between">
                           <div class="d-flex justify-content-between ps-3">
-                            <h2><%= link_to chilli.variety, chilli, class: "text-decoration-none" %></h2>
+                            <h2><%= link_to chilli.variety, chilli, class: "card-link" %></h2>
                             <h2><%= humanized_money_with_symbol(chilli.price) %></h2>
                           </div>
                           <div class="text-end">
-                            <%= link_to "Leave review", new_chilli_review_path(chilli), class: "" %>
+                            <%= link_to "Leave review", new_chilli_review_path(chilli), class: "card-link border-bottom" %>
                           </div>
                         </div>
                       </div>
