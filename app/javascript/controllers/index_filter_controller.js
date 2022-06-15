@@ -19,10 +19,10 @@ export default class extends Controller {
     // console.log(e.target.dataset.chilliType)
     e.target.classList.toggle("inactive")
     // console.log(e.target.className.includes("inactive"))
-    console.log(this.filterTargets.every(this.#isInactive))
-    console.log("****************")
-    this.filterTargets.forEach(filter => {console.log(filter.className.includes("inactive"));})
-    console.log("****************")
+    // console.log(this.filterTargets.every(this.#isInactive))
+    // console.log("****************")
+    // this.filterTargets.forEach(filter => {console.log(filter.className.includes("inactive"));})
+    // console.log("****************")
 
     this.#filterCards()
     this.#totalResults()
@@ -32,10 +32,9 @@ export default class extends Controller {
   #totalResults() {
     console.log("hello from count results")
     let result = 0;
-
-
     this.chilliTargets.forEach(chilli => {
-      if(chilli.className.includes("d-none")){
+      console.log(chilli.parentElement)
+      if(chilli.parentElement.className.includes("d-none")){
         result += 1
       }
       })

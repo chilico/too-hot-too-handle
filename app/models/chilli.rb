@@ -15,11 +15,12 @@ class Chilli < ApplicationRecord
 
   monetize :price_cents
 
-
   algoliasearch do
     # all attributes will be sent
     attributes :variety, :chilli_type, :species, :heat, :description
 
     searchableAttributes ['unordered(chilli_type)', 'unordered(heat)', 'unordered(species)', 'unordered(variety)']
+
+    hitsPerPage 100
   end
 end

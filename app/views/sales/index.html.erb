@@ -41,7 +41,7 @@
                 </div>
                 <div class="d-flex justify-content-between w-75 pb-4">
                   <p>Ordered at</p>
-                  <p><%= sale.created_at %></p>
+                  <p><%= sale.created_at.strftime("%a %b %e at %l:%M %p") %></p>
                 </div>
               </div>
             </div>
