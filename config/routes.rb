@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   patch '/sales/:id', to: 'sales#update', as: :update_basket
   get '/sales/:id/confirm', to: 'sales#confirm', as: :order_confirmation
 
-  resources :chatrooms, only: %i[index show new create destroy] do
+  resources :chatrooms, only: %i[index show create] do
     resources :messages, only: :create
   end
 end
