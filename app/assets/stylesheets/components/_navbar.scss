@@ -3,8 +3,11 @@
   // background: white;
   // background: #2f26267d;
   // background:#2C2C2C;
-  background:#0b3844;
+  // background:#0b3844;
   // background: #232327;
+  // background: #232327;
+  background: $dark-blue;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   // background: linear-gradient(135deg,,);
   position: fixed;
   top: 0;
@@ -12,10 +15,26 @@
   z-index: 9;
 
   h2 {
-    padding-top: 8px;
     color: $light_blue;
+    padding-top: 6px;
   }
 }
+
+.icon-small {
+  height: 60px;
+}
+
+.icon-big {
+  height: 120px;
+}
+
+.text-icon-small {
+  // color: $light_blue;
+  color: #12667c !important;
+  font-size: 32px;
+  padding-top: 6px;
+}
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -42,6 +61,10 @@
   -moz-text-fill-color: transparent;
 }
 
+.logo-text {
+  font-family: $logo-font;
+}
+
 .badge {
   padding: 0 12px;
   border-radius: 50%;
@@ -49,16 +72,20 @@
 
 .basket-count {
   text-decoration: none;
-  font-size: 16px;
-  background: $lighter_blue;
+  font-size: 18px;
+  background: firebrick;
   color: $off-white;
   padding: 0 5px;
   vertical-align: top;
-  margin-left: -45px;
+  margin-left: -25px;
   margin-top: 2px;
 }
 
 .cart-avatar {
   margin-right: 20px;
   width: 100px;
+}
+
+.nav-link {
+  color: $off-white !important;
 }
