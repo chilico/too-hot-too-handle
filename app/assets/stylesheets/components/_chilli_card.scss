@@ -2,7 +2,8 @@
   box-sizing: content-box;
   overflow: hidden;
   height: 231px;
-  background: linear-gradient(225deg, #f8ca9f 0%, #E6A66D 100%);
+  background: linear-gradient(225deg, #f5e5d6 0%, #e8bc92 100%);
+  // background-color: rgba(230,166,109,.8);
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -33,4 +34,8 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.chilli-meter {
+  width: 86px;
 }

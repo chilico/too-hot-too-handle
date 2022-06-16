@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   // background: white;
+  // background: #2f26267d;
+  // background:#2C2C2C;
+  // background:#0b3844;
+  // background: #232327;
   // background: #232327;
   background: $dark-blue;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -11,8 +15,8 @@
   z-index: 9;
 
   h2 {
+    color: $light_blue;
     padding-top: 6px;
-    color: black $off-white;
   }
 }
 
@@ -45,7 +49,7 @@
 }
 
 .gradient-text {
-  font-weight: bold;
+  font-weight:600;
   background-color: red;
   background-image: linear-gradient(0deg, #f3ec78, #af4261);
   background-size: 100%;
