@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @chillis = @user.chillis
+    @chatrooms = Chatroom.where(seller: current_user)
+                         .or(Chatroom.where(buyer: current_user))
     @markers = {
       lat: @user.latitude,
       lng: @user.longitude,
