@@ -1,4 +1,9 @@
 <div class="container my-5">
+  <div class="row">
+    <div class="col-12 mb-4">
+      <p><%= link_to "< Back to profile", user_path(current_user), class: "styling-for-links" %></p>
+    </div>
+  </div>
   <h1>Order history</h1>
   <div class="accordion accordion-flush" id="accordionFlushExample">
     <% @sales.each do |sale| %>
