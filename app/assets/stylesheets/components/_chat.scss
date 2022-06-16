@@ -1,3 +1,44 @@
+.fixed-height {
+  height: 60vh;
+}
+
 .selected-chat {
   background-color: $light_blue;
+}
+.messages {
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  p {
+    color: #545454 !important;
+  }
+}
+.my-message {
+  background: linear-gradient(225deg, #F5E5D6 0%, #E8BC92 100%);
+}
+
+.other-message {
+  background: linear-gradient(225deg, #E8BC92 0%, #F5E5D6 100%);
+}
+
+#message_content {
+  font-size: 16px;
+  color: #656565;
+  background-color: white;
+  border: 1px solid #FB8B24;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.btn-send {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #FB8B24;
+
+  &:hover {
+    background-color: rgba(251, 139, 36, 0.7);
+    border-color: #FB8B24;
+    color: white;
+    cursor: pointer;
+  }
 }

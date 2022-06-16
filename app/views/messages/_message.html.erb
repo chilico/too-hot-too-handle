@@ -1,7 +1,9 @@
-<div id="message-<%= message.id %>" style="background-color: gray;" class="p-1 m-1">
-  <small>
-    <strong><%= message.user.first_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+<div class="<%= 'd-flex justify-content-end' if message.user == current_user %> w-75">
+  <div id="message-<%= message.id %>" class="messages <%= message.user == current_user ? 'my-message' : 'other-message' %> p-2 m-2 w-50">
+    <small>
+      <strong><%= message.user.first_name %></strong>
+      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    </small>
+    <p><%= message.content %></p>
+  </div>
 </div>
