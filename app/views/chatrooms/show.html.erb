@@ -31,7 +31,7 @@
       <div class="chatroom"
         data-controller="chatroom-subscription"
         data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-        <h3 class="py-2">#<%= @chatroom.name %></h3>
+        <h3 class="py-2"><%= @chatroom.name %> Chat</h3>
 
         <div data-chatroom-subscription-target="messages">
           <% @chatroom.messages.each do |message| %>
