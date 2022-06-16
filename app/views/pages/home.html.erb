@@ -1,7 +1,8 @@
 <div class="top-panel">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('homepage/banner.jpg') %>');">
-    <div class="container">
-      <h1>Spice up your life</h1>
+    <div class="d-flex flex-column align-items-center position-relative">
+      <div class="hr-green position-absolute"></div>
+      <h1 class="z1">Spice up your life</h1>
     </div>
     <div class="container">
       <div class="row justify-content-center">
@@ -29,7 +30,7 @@
       <%= render "chillitype_card", image_path: "homepage/seed-chilli.jpg", title: "Seeds" %>
       <div class="d-flex flex-column flex-grow-1 col-12 col-md-2 justify-content-center align-items-center">
         <h2>Did you know you can buy chillies three ways?</h2>
-        <p>Are you looking for fresh chillies to make a zesty salsa, maybe dried chillies for a weekend recipe, or perhaps want to grow a rare veriety? We have you covered! </p>
+        <p class="text-size-18">Are you looking for fresh chillies to make a zesty salsa, maybe dried chillies for a weekend recipe, or perhaps want to grow a rare veriety? We have you covered! </p>
       </div>
     </div>
   </div>
@@ -41,7 +42,7 @@
       <div class="row col-12 d-flex justify-content-center align-items-center">
         <div class="d-flex flex-column text-light flex-fill col-12 col-md-2 align-items-center pt-3">
           <h2>Different 🔥 levels to meet everyone's needs!</h2>
-          <p>Whether you're addicted to heat or prefer to steer clear, we have the chillis for each. Explore Scoville Heat Units (SHU) with us.</p>
+          <p class="text-size-18">Whether you're addicted to heat or prefer to steer clear, we have the chillis for each. Explore Scoville Heat Units (SHU) with us.</p>
         </div>
         <%= render "heat_level" %>
       </div>
@@ -56,7 +57,7 @@
   <div class="container d-flex flex-column align-items-center text-center py-2">
     <div class="row d-flex flex-column text-light flex-fill col-10 align-items-center pt-3">
       <h2>The five domesticated species of chilli</h2>
-      <p>Did you know all the chillies of the world that people farm and eat belong to only five species? You might already be familiar with <em>Capsicum annuum</em>, which many popular chillis belong to - including the jalapeno, serrano, and even bell peppers! Or perhaps you'd like to try a rarer South American species, such as <em>C. baccatum</em>, or <em>C. frutescens</em>? And of course, if you're looking to turn up the 🔥, search for firery <em>C. chinense</em> - the hottest of all the chillies!</p>
+      <p class="text-size-18">Did you know all the chillies of the world that people farm and eat belong to only five species? You might already be familiar with <em>Capsicum annuum</em>, which many popular chillis belong to - including the jalapeno, serrano, and even bell peppers! Or perhaps you'd like to try a rarer South American species, such as <em>C. baccatum</em>, or <em>C. frutescens</em>? And of course, if you're looking to turn up the 🔥, search for firery <em>C. chinense</em> - the hottest of all the chillies!</p>
     </div>
     <div class="row d-flex justify-content-center">
       <%= render "species_card", image_path: "species-icons/capsicum-annuum.png", title: "annuum", search:"Annuum" %>

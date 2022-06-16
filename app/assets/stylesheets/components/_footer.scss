@@ -8,8 +8,9 @@
   align-items: center;
   justify-content: center;
   // background: white;
-  background: #232327;
-  // background: linear-gradient(135deg,,);
+  // background: #232327;
+  background: $dark-blue;
+  box-shadow: 2px 0px 4px rgba(0,0,0,0.2);
   height: 80px;
   width: 100%;
   padding: 0px 50px;
@@ -20,6 +21,7 @@
   p {
     font-size: 12px;
     color: $light-gray;
+    margin-bottom: 0;
   }
 }
 .footer-links {
@@ -28,7 +30,7 @@
   align-items: center;
 }
 .footer-links a {
-  color: #b40223;
+  color: whitesmoke;
   opacity: 0.7;
   text-decoration: none;
   font-size: 24px;

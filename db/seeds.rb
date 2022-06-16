@@ -228,5 +228,32 @@ end
 puts 'Successfully seeded database!'
 
 # manual fixes
-# Sale.all.each {|sale| sale.update(price_cents: sale.chillis.all.map(&:price_cents).reduce(:+))}
 # User.all.each {|user| user.sales.each_with_index {|sale, idx| sale.update(sale_sku: "user_sale_#{idx + 1}")}}
+
+############################################
+### for Estef! Uncomment below from here ###
+
+# ### photos
+# require_relative 'db/seeds_images'
+# species = 'baccatum'
+# variety = 'aji'
+# chilli = User.find(3).chillis.where(variety: 'Spicy Rocoto').first
+# chilli.photos.purge
+# @IMAGES[:fresh][species.to_sym][variety.to_sym].shuffle.sample(4).each_with_index do |url, i|
+#   photo = URI.open(url)
+#   filename = "#{chilli.variety.downcase.gsub(' ', '_')}_#{i}.jpg"
+#   chilli.photos.attach(io: photo, filename: filename, content_type: 'image/png')
+# end
+# chilli.save
+
+# ### description
+# new_descrip_1 = 'TO DO'
+# chilli_1 = User.find(3).chillis.where(variety: 'Sharp Tabasco').first # check the name (variety) is right if it doesn't find it
+# chilli_1.update(description: new_descrip_1)
+
+# new_descrip2 = 'TO DO'
+# chilli_2 = User.find(3).chillis.where(variety: 'Spicy Piri piri').first # same as above
+# chilli_2.update(description: new_descrip_2)
+
+# ### destroy some Ajis with same pics
+# Chilli.where(variety: 'Aji').where(price_cents: [243, 332, 1350, 379, 449]).each {|i| i.destroy}
