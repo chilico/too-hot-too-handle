@@ -5,6 +5,10 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .text-size-200 {
   font-size: 200px;
 }
@@ -27,10 +31,6 @@
 
 .text-size-18 {
   font-size: 18px;
-}
-
-.section {
-  background-color: $light_blue;
 }
 
 .text-bold {

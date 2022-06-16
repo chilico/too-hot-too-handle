@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  // background: white;
+  background: #232327;
+  // background: linear-gradient(135deg,,);
   position: fixed;
   top: 0;
   width: 100%;
@@ -51,4 +53,9 @@
   vertical-align: top;
   margin-left: -45px;
   margin-top: 2px;
+}
+
+.cart-avatar {
+  margin-right: 20px;
+  width: 100px;
 }
