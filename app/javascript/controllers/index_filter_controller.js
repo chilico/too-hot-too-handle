@@ -42,7 +42,7 @@ export default class extends Controller {
     let totalResults = parseInt(this.chilliCountValue) - result
     console.log(result)
     console.log(totalResults)
-    this.resultsTarget.innerHTML = `${totalResults} Results`
+    this.resultsTarget.innerHTML = `${totalResults} Chillies`
   }
 
   #filterCards() {
