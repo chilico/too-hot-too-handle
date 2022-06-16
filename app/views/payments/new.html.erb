@@ -1,10 +1,12 @@
-<div style="background-color: #0F4C5C;">
+<div style="background-color: #0F4C5C;" class="mt-5">
   <div class="container">
     <div class="row py-4 justify-content-center align-items-center">
-      <div class="col-md-3"><%= image_tag @sale.chillis.first.photos.first, width: '100%' %></div>
+      <div class="col-md-3">
+        <i class="fa-regular fa-pepper-hot gradient-text" style="font-size: 200px;"></i>
+      </div>
       <div class="col-md-4 d-flex flex-column align-items-start" style="height: 100%;">
         <div class="mb-auto">
-          <h1 style=>One step closer to your chillis!</h1>
+          <h1 style=>One step closer to your chillies!</h1>
         </div>
         <br>
         <div>
@@ -13,8 +15,8 @@
           Order total: <strong><%= humanized_money_with_symbol(@sale.price) %></strong></p>
         </div>
         <br>
-        <div class="row justify-content-center">
-          <button id="pay" class="btn btn-primary">Pay Now</button>
+        <div class="justify-content-center">
+          <button id="pay" class="btn btn-primary px-4">Pay Now</button>
           <script src="https://js.stripe.com/v3/"></script>
           <script>
             const paymentButton = document.getElementById('pay');
@@ -30,3 +32,6 @@
     </div>
   </div>
 </div>
+
+
+<%# <%= image_tag @sale.chillis.first.photos.first, width: '100%' %>

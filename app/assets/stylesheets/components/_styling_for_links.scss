@@ -12,6 +12,14 @@
   font-weight: bolder;
 }
 
+.styling-for-links-log-in {
+  color: #7e8083;
+
+  &:hover{
+    color: #393c3f;
+    cursor:pointer;
+  }
+}
 
 .styling-for-links-dark {
   color: #585c61;
