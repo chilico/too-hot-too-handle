@@ -13,6 +13,10 @@
   font-size: 200px;
 }
 
+.text-size-80 {
+  font-size: 80px !important;
+}
+
 .text-size-40 {
   font-size: 40px;
 }
@@ -45,6 +49,25 @@
   height: calc(100vh - 78.4px);
 }
 
+.top-panel-index {
+  height: calc(80vh - 78.4px);
+}
+
 .neg {
   margin-top: -55px;
+}
+
+.z1 {
+  z-index: 1;
+}
+
+.hr-green {
+  // display: block;
+  height: 30px;
+  width: 666px;
+  margin-top: 55px;
+  background: #109648;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  z-index: 0;
+  border-radius: 2px;
 }
