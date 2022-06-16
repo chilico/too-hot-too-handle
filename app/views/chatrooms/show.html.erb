@@ -1,5 +1,10 @@
 <div class="container my-5">
   <div class="row">
+    <div class="col-12 mb-4">
+      <p><%= link_to "< Back to profile", user_path(current_user), class: "styling-for-links" %></p>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-12 col-md-3 pt-4">
       <% @chatrooms.each do |chatroom| %>
         <div class="<%= 'selected-chat' if @chatroom == chatroom %> p-4 border-bottom">
