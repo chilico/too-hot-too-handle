@@ -14,22 +14,18 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      // style: "mapbox://styles/chilico/cl4e9q3sj002g14qs4jbgvhb8"
-      style: "mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb"
+      style: "mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb",
+      center: [-96, 37.8], // starting position
+      zoom: 3
     })
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.#locateVisitor()
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
   }
-
-  // #addMarkersToMap() {
-  //   new mapboxgl.Marker()
-  //     .setLngLat([ this.markersValue.lng, this.markersValue.lat ])
-  //     .addTo(this.map)
-  // }
 
   #addMarkersToMap() {
     const popup = new mapboxgl.Popup().setHTML(this.markersValue.info_window)
@@ -53,5 +49,20 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     bounds.extend([ this.markersValue.lng, this.markersValue.lat ])
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
+
+  #locateVisitor() {
+    // Add geolocate control to the map.
+    this.map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+      })
+    );
   }
 }
