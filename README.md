@@ -1,4 +1,4 @@
-# 2Hot@Handle
+# 2Hot2Handle
 
 This site is a market for chillies, as a user you can buy or sell your chillies on the platform. [Click here](http://www.2hot2handle.store/) to visit and join to our chilli community.
 
