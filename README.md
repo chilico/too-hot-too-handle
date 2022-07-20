@@ -18,15 +18,25 @@ Recorded demo of product
 
 
 ## Prerequisites
-- Ruby version 7
-- npm ...
+
+You should already have Ruby on Rails installed. Check it with:
+
+    rails -v
+    
+You should already have Node.js v16.13.1 or higher installed. Check it with:
+
+    node -v
+
+You should already have yarn installed. Check it with:
+
+    yarn -v
 
 
 ## Installation
-include the steps required to install project and also the required dependencies. step-by-step:
 
-1. First step
-2. Second
+    bundle install
+    yarn install
+    rails db:create db:migrate
 
 ## Usage
 ...
