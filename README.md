@@ -47,9 +47,9 @@ include the steps required to install project and also the required dependencies
 
 
 ## Code Contributors
-- [Maryam Fazlali](#https://github.com/MeryGoodernak)
-- [Estefani Perez](#https://github.com/estef0214)
-- [Chris Owen](#https://github.com/chilico)
+- [Maryam Fazlali](https://github.com/MeryGoodernak)
+- [Estefani Perez](https://github.com/estef0214)
+- [Chris Owen](https://github.com/chilico)
 
 
 ## License
